@@ -1,25 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Calendar, Users, Code } from 'lucide-react';
+import { Calendar, Code } from 'lucide-react';
+
+import { Briefcase } from 'lucide-react';
 
 const experienceData = [
   {
     id: 1,
-    role: "Management Team",
-    organization: "iSpace Club",
-    period: "Aug 2023 - Dec 2024",
-    description: "Handled tech & non-tech iOS events, logistics, team onboarding, and event outreach.",
-    icon: <Users className="text-neon-purple" size={24} />,
-    color: "neon-purple"
+    role: "Samsung PRISM Intern",
+    organization: "Samsung R&D Institute India – Bangalore | Remote",
+    period: "July 2025 - Present",
+    description: "Building an AI-powered all-in-one communication app, focusing on context-aware task automation and lightweight on-device AI models.",
+    icon: <Briefcase className="text-neon-blue" size={24} />,
+    color: "neon-blue"
   },
   {
     id: 2,
-    role: "Competitive Programming",
-    organization: "Google Developer Group",
+    role: "Product Development Intern",
+    organization: "Medialogic Solutions Pvt. Ltd. | Chennai, TN",
+    period: "June 2025 – July 2025",
+    description: "Built and deployed a production-grade speech-to-text system, reducing report completion time by over 80% for medical staff in 4000+ hospitals.",
+    icon: <Briefcase className="text-neon-purple" size={24} />,
+    color: "neon-purple"
+  },
+  {
+    id: 3,
+    role: "Competitive Programming Member",
+    organization: "Google Developer Group (GDG) | VIT Chennai",
     period: "Oct 2024 - Present",
-    description: "Participated in Codeforces, LeetCode, Codechef, led post-contest analysis & peer strategy.",
-    icon: <Code className="text-neon-green\" size={24} />,
+    description: "Active member of GDG's Competitive Programming wing, regularly participating in coding contests and collaborative problem-solving sessions.",
+    icon: <Code className="text-neon-green" size={24} />,
     color: "neon-green"
   }
 ];

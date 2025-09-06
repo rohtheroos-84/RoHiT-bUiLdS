@@ -71,13 +71,13 @@ const Education: React.FC = () => {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-xl font-bold font-mono text-white">VIT Chennai</h3>
-                <div className="font-mono text-neon-blue text-sm mb-2">Aug 2023 - Present</div>
-                <p className="text-gray-300">B.Tech in CSE (AI & ML)</p>
-                <p className="font-semibold text-neon-green">GPA: 8.94</p>
+                <h3 className="text-xl font-bold font-mono text-white">Vellore Institute of Technology, Chennai</h3>
+                <div className="font-mono text-neon-blue text-sm mb-2">August 2023 – Present</div>
+                <p className="text-gray-300">Bachelors in Computer Science with spl. in AI & ML</p>
+                <p className="font-semibold text-neon-green">GPA: 8.81</p>
                 <div className="mt-4 border-t border-gray-700 pt-4">
                   <p className="text-gray-400 text-sm">
-                    Specializing in Artificial Intelligence and Machine Learning, focusing on deep learning technologies and their applications.
+                    Pursuing a comprehensive curriculum with a specialisation in Artificial Intelligence and Machine Learning.
                   </p>
                 </div>
               </motion.div>
@@ -102,13 +102,13 @@ const Education: React.FC = () => {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-xl font-bold font-mono text-white">Shrishti Vidyashram, Vellore</h3>
-                <div className="font-mono text-neon-purple text-sm mb-2">Completed 2023</div>
-                <p className="text-gray-300">12th Grade</p>
-                <p className="font-semibold text-neon-green">Percentage: 83.2%</p>
+                <h3 className="text-xl font-bold font-mono text-white">Shrishti Vidyashram Sr. Sec. School</h3>
+                <div className="font-mono text-neon-purple text-sm mb-2">June 2016 - April 2023</div>
+                <p className="text-gray-300">Till 12th grade</p>
+                <p className="font-semibold text-neon-green">Percentage: 83.2</p>
                 <div className="mt-4 border-t border-gray-700 pt-4">
                   <p className="text-gray-400 text-sm">
-                    Completed senior secondary education with focus on Computer Science and Mathematics.
+                    Completed higher secondary education with a focus on science and technology.
                   </p>
                 </div>
               </motion.div>

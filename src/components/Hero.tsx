@@ -38,8 +38,8 @@ const Hero: React.FC = () => {
             <Typewriter
               options={{
                 strings: [
-                  "Hi, I'm Rohit – I build AI bots that cook",
-                  "and detectors that decode deception."
+                  "I build intelligent systems",
+                  "and user-centric applications."
                 ],
                 autoStart: true,
                 loop: true,

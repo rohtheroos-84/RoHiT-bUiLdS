@@ -6,17 +6,38 @@ import { Award, ExternalLink } from 'lucide-react';
 const certificatesData = [
   {
     id: 1,
-    title: "Python (Basic)",
-    issuer: "HackerRank",
-    date: "Sep 2024",
-    link: "#",
+    title: "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
+    issuer: "Oracle",
+    date: "2025",
+    link: "https://drive.google.com/file/d/1_0eu48xhGu9EOVNXNN5TYDLN_fPMF4Fz/view?usp=sharing",
   },
   {
     id: 2,
+    title: "Python (Basic)",
+    issuer: "HackerRank",
+    date: "Sep 2024",
+    link: "https://www.hackerrank.com/certificates/iframe/f5b3b6d8dfb6",
+  },
+  {
+    id: 3,
     title: "Problem Solving (Intermediate DSA)",
     issuer: "HackerRank",
     date: "Sep 2024",
-    link: "#",
+    link: "https://www.hackerrank.com/certificates/iframe/4038902a5427",
+  },
+  {
+    id: 4,
+    title: "Dive Into Generative AI",
+    issuer: "Alibaba Cloud Academy",
+    date: "Oct 2024",
+    link: "https://drive.google.com/file/d/1YLr0xElRoms-h2aSRgrEdSQZIVxnXJT8/view?usp=sharing",
+  },
+  {
+    id: 5,
+    title: "Getting Started with Machine Learning & AI",
+    issuer: "Alibaba Cloud Apsara Clouder",
+    date: "Oct 2024",
+    link: "https://drive.google.com/file/d/19TyGPpyQy4AdI3aJdyeuU33Kmds_dCDy/view?usp=sharing",
   }
 ];
 

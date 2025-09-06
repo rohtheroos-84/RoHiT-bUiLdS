@@ -7,32 +7,34 @@ import ParallaxTilt from 'react-parallax-tilt';
 const projectData = [
   {
     id: 1,
-    title: "DeepShield",
-    description: "Deepfake Video Detection using Vision Transformers",
+    title: "DeepShield – Deepfake Video Detection",
+    description: "A deepfake detection system using Vision Transformer (ViT) with 91.03% training accuracy.",
     icon: <Shield className="text-neon-blue" size={24} />,
     details: [
-      "Built using Vision Transformers on the FaceForensics++ dataset",
-      "Flask backend with real-time video upload + frame-level classification",
-      "91.03% training & 88.13% validation accuracy",
-      "Top 150 out of 2000+ teams at HackHub'25"
+      "Engineered a ViT-based system, achieving 88.13% validation accuracy on the FaceForensics++ dataset.",
+      "Deployed a Flask backend for real-time video uploads and frame-by-frame classification.",
+      "Enhanced detection precision using color jitter, horizontal flips, and normalization techniques.",
+      "Selected among top 150 out of 2000+ teams at HackHub'25."
     ],
-    technologies: ["Python", "PyTorch", "Vision Transformers", "Flask", "OpenCV"],
-    github: "https://github.com/rohtheroos-84/DeepShield",
+    technologies: ["Python", "ViT", "Flask", "Deep Learning"],
+    github: "https://github.com/rohtheroos-84/HackHobbits",
+    link: "https://github.com/rohtheroos-84/HackHobbits",
     color: "neon-blue"
   },
   {
     id: 2,
-    title: "SavourAI",
-    description: "Indian Recipe Recommendation Chatbot",
-    icon: <Utensils className="text-neon-green\" size={24} />,
+    title: "SavourAI – Smart Indian Recipe Chatbot",
+    description: "An AI-powered recipe recommendation system that identifies fridge ingredients using CNNs and the Gemini API.",
+    icon: <Utensils className="text-neon-green" size={24} />,
     details: [
-      "Uses CNNs + Gemini API to extract ingredients from images",
-      "Combines content-based and collaborative filtering for smart recipe recs",
-      "React frontend, Flask backend, complete with nutrition breakdowns",
-      "Aims to reduce food waste + modernize traditional Indian cooking"
+      "Implemented a hybrid filtering engine for personalized meal recommendations.",
+      "Designed and deployed a full-stack web app with a React frontend and Flask backend.",
+      "Developed a detailed recipe database with nutritional info to promote health-conscious decisions.",
+      "Focused on reducing food waste and reviving traditional Indian cooking practices."
     ],
-    technologies: ["Python", "React", "Flask", "CNN", "Gemini API", "Collaborative Filtering"],
+    technologies: ["Python", "React", "Flask", "CNN", "Gemini API", "Hybrid Filtering"],
     github: "https://github.com/rohtheroos-84/SavourAI",
+    link: "https://github.com/rohtheroos-84/SavourAI",
     color: "neon-green"
   }
 ];
@@ -144,7 +146,9 @@ const Projects: React.FC = () => {
                       </motion.a>
                       
                       <motion.a
-                        href="#"
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={`p-2 rounded-full border border-${project.color} hover:bg-${project.color} hover:bg-opacity-20 transition-colors`}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}

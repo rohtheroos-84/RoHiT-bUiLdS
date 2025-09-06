@@ -74,22 +74,23 @@ const About: React.FC = () => {
                 <span className="neon-text-blue">CSE Student</span> at VIT Chennai
               </h3>
               <p className="text-gray-300 text-lg leading-relaxed">
-                Second-year B.Tech CSE student specializing in AI & ML with a GPA of 8.94. 
-                Passionate about deep learning, backend development, and Python wizardry.
+                A passionate Computer Science student at VIT Chennai (GPA: 8.81), specializing in AI & Machine Learning.
+                I thrive on building intelligent, user-centric applications and have hands-on experience in both software development and AI-driven projects.
+                My goal is to translate complex technical challenges into elegant, real-world solutions.
               </p>
               
               <div className="space-y-4">
                 <div className="flex items-center space-x-2">
                   <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">Fluent in Python, C, C++, Java, SQL, and JavaScript</p>
+                  <p className="text-gray-300">Confident communication and team coordination</p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">Working with frameworks like Flask, Pandas, and NumPy</p>
+                  <p className="text-gray-300">Decoding dodgy bugs and translating complex tech into simple talk</p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">Experience with GitHub, MySQL, Keil, Cursor, OracleSQL</p>
+                  <p className="text-gray-300">Proficient in a wide array of programming languages, frameworks, and tools</p>
                 </div>
               </div>
               
@@ -126,7 +127,7 @@ const About: React.FC = () => {
                 </motion.a>
                 
                 <motion.a
-                  href="https://linkedin.com/in/rohit-n"
+                  href="http://www.linkedin.com/in/rohitnagendran84"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 glassmorphism rounded-full flex items-center justify-center hover:border-neon-purple transition-colors border border-transparent"
@@ -144,7 +145,7 @@ const About: React.FC = () => {
                 </motion.a>
                 
                 <motion.a
-                  href="https://leetcode.com/Rohhcodes84"
+                  href="https://leetcode.com/u/Rohhcodes84/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 glassmorphism rounded-full flex items-center justify-center hover:border-neon-green transition-colors border border-transparent"
