@@ -110,14 +110,14 @@ const Contact: React.FC = () => {
                 
                 <div className="flex items-center">
                   <Linkedin className="text-neon-green mr-4" size={20} />
-                  <a href="https://linkedin.com/in/rohit-n" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-neon-green transition-colors">
+                  <a href="http://www.linkedin.com/in/rohitnagendran84" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-neon-green transition-colors">
                     Rohit N
                   </a>
                 </div>
                 
                 <div className="flex items-center">
                   <Code2 className="text-neon-pink mr-4" size={20} />
-                  <a href="https://leetcode.com/Rohhcodes84" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-neon-pink transition-colors">
+                  <a href="https://leetcode.com/u/Rohhcodes84/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-neon-pink transition-colors">
                     Rohhcodes84
                   </a>
                 </div>

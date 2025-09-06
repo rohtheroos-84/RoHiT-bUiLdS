@@ -6,34 +6,44 @@ type SkillCategory = 'all' | 'languages' | 'frameworks' | 'tools' | 'platforms';
 
 const skillsData = {
   languages: [
-    { name: "Python", level: 90 },
-    { name: "C", level: 85 },
-    { name: "C++", level: 80 },
+    { name: "Python", level: 95 },
+    { name: "C#", level: 80 },
+    { name: "C++", level: 85 },
+    { name: "C", level: 80 },
     { name: "Java", level: 75 },
     { name: "SQL", level: 85 },
-    { name: "JavaScript", level: 70 }
+    { name: "Javascript", level: 70 },
+    { name: "R", level: 60 }
   ],
   frameworks: [
-    { name: "Flask", level: 80 },
-    { name: "Pandas", level: 85 },
-    { name: "NumPy", level: 80 },
-    { name: "PyTorch", level: 75 },
-    { name: "React", level: 65 }
+    { name: "Pandas", level: 90 },
+    { name: "NumPy", level: 85 },
+    { name: "Scikit-Learn", level: 80 },
+    { name: "Matplotlib", level: 75 },
+    { name: "Qiskit", level: 70 },
+    { name: "Flask", level: 85 },
+    { name: "python.net", level: 80 },
+    { name: ".Net 4.8", level: 75 },
+    { name: "LangChain", level: 80 },
+    { name: "RAG", level: 75 }
   ],
   tools: [
-    { name: "Git", level: 85 },
-    { name: "GitHub", level: 90 },
-    { name: "MySQL", level: 80 },
-    { name: "OracleSQL", level: 75 },
-    { name: "Keil", level: 70 },
-    { name: "Cursor", level: 85 }
+    { name: "Excel", level: 85 },
+    { name: "PowerPoint", level: 90 },
+    { name: "MySQL", level: 85 },
+    { name: "Oracle SQL", level: 80 },
+    { name: "GitHub", level: 95 },
+    { name: "Keil", level: 70 }
   ],
   platforms: [
-    { name: "Linux", level: 75 },
-    { name: "Windows", level: 90 },
-    { name: "VS Code", level: 85 },
-    { name: "Jupyter", level: 80 },
-    { name: "Google Colab", level: 85 }
+    { name: "Visual Studio", level: 90 },
+    { name: "VS Code", level: 95 },
+    { name: "Project Libre", level: 70 },
+    { name: "StarUML", level: 75 },
+    { name: "Google Colab", level: 85 },
+    { name: "Cursor", level: 80 },
+    { name: "OCI", level: 80 },
+    { name: "AWS", level: 75 }
   ]
 };
 
