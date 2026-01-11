@@ -10,10 +10,12 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [showEasterEgg, setShowEasterEgg] = useState(false);
 
   useEffect(() => {
     // Simulate loading time
@@ -23,6 +25,25 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    // Apply theme to document
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const handleThemeToggle = () => {
+    if (theme === 'dark') {
+      // 50% chance to show easter egg instead of switching
+      if (Math.random() < 0.5) {
+        setShowEasterEgg(true);
+        setTimeout(() => setShowEasterEgg(false), 2500);
+      } else {
+        setTheme('light');
+      }
+    } else {
+      setTheme('dark');
+    }
+  };
 
   if (loading) {
     return (
@@ -48,21 +69,77 @@ function App() {
   }
 
   return (
-    <div className="App gradient-bg">
-      <Cursor />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Education />
-        <Projects />
-        <Experience />
-        <Skills />
-        <Certificates />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <div className="App gradient-bg">
+        <Cursor />
+        <Navbar theme={theme} onThemeToggle={handleThemeToggle} />
+        <main>
+          <Hero />
+          <About />
+          <Education />
+          <Projects />
+          <Experience />
+          <Skills />
+          <Certificates />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+
+      {/* Easter Egg Modal */}
+      <AnimatePresence>
+        {showEasterEgg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
+          >
+            <motion.div
+              initial={{ scale: 0.5, rotate: -5, opacity: 0 }}
+              animate={{ 
+                scale: 1, 
+                rotate: [0, -2, 2, -2, 0],
+                opacity: 1
+              }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ 
+                type: "spring",
+                damping: 10,
+                stiffness: 100,
+                rotate: {
+                  repeat: 2,
+                  duration: 0.2
+                }
+              }}
+              className="glassmorphism rounded-xl p-8 border-2 border-red-500 shadow-2xl pointer-events-auto"
+              style={{
+                boxShadow: '0 0 30px rgba(255, 0, 0, 0.5), 0 0 60px rgba(255, 0, 0, 0.3)'
+              }}
+            >
+              <div className="text-center">
+                <motion.div
+                  animate={{ 
+                    textShadow: [
+                      '0 0 10px rgba(255, 0, 0, 0.8)',
+                      '0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.8)',
+                      '0 0 10px rgba(255, 0, 0, 0.8)'
+                    ]
+                  }}
+                  transition={{ duration: 0.5, repeat: Infinity }}
+                  className="text-3xl md:text-4xl font-mono font-bold text-red-500 mb-2"
+                >
+                  ⚠️ LIGHT MODE IS BANNED HERE
+                </motion.div>
+                <p className="text-gray-300 font-mono text-sm">
+                  (we only do cyberpunk here)
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 

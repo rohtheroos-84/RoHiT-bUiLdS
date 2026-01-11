@@ -12,10 +12,14 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ];
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  theme: 'dark' | 'light';
+  onThemeToggle: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ theme, onThemeToggle }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,13 +70,14 @@ const Navbar: React.FC = () => {
               </motion.a>
             ))}
             <motion.button
-              onClick={() => setDarkMode(!darkMode)}
+              onClick={onThemeToggle}
               className="p-2 rounded-full"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              aria-label="Toggle theme"
             >
-              {darkMode ? (
-                <Sun className="text-neon-green\" size={20} />
+              {theme === 'dark' ? (
+                <Sun className="text-neon-green" size={20} />
               ) : (
                 <Moon className="text-neon-purple" size={20} />
               )}
@@ -82,13 +87,14 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <motion.button
-              onClick={() => setDarkMode(!darkMode)}
+              onClick={onThemeToggle}
               className="p-2 rounded-full mr-2"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              aria-label="Toggle theme"
             >
-              {darkMode ? (
-                <Sun className="text-neon-green\" size={20} />
+              {theme === 'dark' ? (
+                <Sun className="text-neon-green" size={20} />
               ) : (
                 <Moon className="text-neon-purple" size={20} />
               )}

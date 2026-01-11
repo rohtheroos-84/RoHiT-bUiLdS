@@ -64,7 +64,7 @@ const Education: React.FC = () => {
               </div>
               
               <motion.div 
-                className="ml-0 md:ml-auto md:mr-auto md:w-2/5 md:pl-10 mt-14 md:mt-0 relative md:right-12 glassmorphism rounded-xl p-6"
+                className="mr-0 md:mr-auto md:w-2/5 md:pr-10 mt-14 md:mt-0 relative md:right-12 glassmorphism rounded-xl p-6"
                 whileHover={{
                   boxShadow: "0 0 20px rgba(0, 240, 255, 0.3)",
                   y: -5

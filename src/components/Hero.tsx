@@ -38,13 +38,13 @@ const Hero: React.FC = () => {
             <Typewriter
               options={{
                 strings: [
-                  "I build intelligent systems",
-                  "and user-centric applications."
+                  "cse undergrad building software people don't hate using",
+                  "and tryna write code that works today and won't haunt me tomorrow"
                 ],
                 autoStart: true,
                 loop: true,
-                delay: 50,
-                deleteSpeed: 30,
+                delay: 38,
+                deleteSpeed: 20,
               }}
             />
           </div>
@@ -55,8 +55,9 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
         >
-          <motion.button
-            className="mt-8 px-8 py-3 glassmorphism rounded-full text-neon-blue border border-neon-blue text-lg font-mono"
+          <motion.a
+            href="#projects"
+            className="mt-8 px-8 py-3 glassmorphism rounded-full text-neon-blue border border-neon-blue text-lg font-mono inline-block"
             whileHover={{ 
               scale: 1.05, 
               boxShadow: "0 0 20px rgba(0, 240, 255, 0.5)"
@@ -78,27 +79,7 @@ const Hero: React.FC = () => {
             }}
           >
             Explore My Work
-          </motion.button>
-        </motion.div>
-        
-        <motion.div 
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: 1, 
-            y: [0, 10, 0] 
-          }}
-          transition={{
-            y: {
-              duration: 1.5,
-              repeat: Infinity,
-            },
-            opacity: { delay: 2, duration: 1 }
-          }}
-        >
-          <a href="#about">
-            <ChevronDown className="text-neon-blue h-8 w-8" />
-          </a>
+          </motion.a>
         </motion.div>
       </div>
       

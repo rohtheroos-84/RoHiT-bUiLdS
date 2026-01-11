@@ -59,9 +59,9 @@ const About: React.FC = () => {
                 <div className="glassmorphism rounded-xl p-1.5">
                   <div className="relative overflow-hidden rounded-lg">
                     <img 
-                      src="https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg" 
+                      src="/src/my-pic.jpg" 
                       alt="Rohit N" 
-                      className="w-full rounded-lg object-cover h-[400px]"
+                      className="w-full rounded-lg object-cover h-[500px]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary-bg via-transparent to-transparent"></div>
                   </div>
@@ -71,26 +71,36 @@ const About: React.FC = () => {
             
             <motion.div variants={itemVariant} className="space-y-6">
               <h3 className="text-3xl font-bold font-mono">
-                <span className="neon-text-blue">CSE Student</span> at VIT Chennai
+                hey, i'm <span className="neon-text-blue">rohit.</span>
               </h3>
               <p className="text-gray-300 text-lg leading-relaxed">
-                A passionate Computer Science student at VIT Chennai (GPA: 8.81), specializing in AI & Machine Learning.
-                I thrive on building intelligent, user-centric applications and have hands-on experience in both software development and AI-driven projects.
-                My goal is to translate complex technical challenges into elegant, real-world solutions.
+                cse undergrad and an aspiring swe.
+              </p>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                i work on software with the aim of making things easier for the people who actually use it. 
+                i've spent time on backend work, some ml when it's actually needed, and shipping features in setups that have their fair share of quirks. 
+                i try to write code that's clear, practical, and won't annoy me when i look at it later.
+              </p>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                don't really have a "method", i just work on what's in front of me and try to improve along the way.
               </p>
               
               <div className="space-y-4">
                 <div className="flex items-center space-x-2">
                   <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">Confident communication and team coordination</p>
+                  <p className="text-gray-300">backend & ml development</p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">Decoding dodgy bugs and translating complex tech into simple talk</p>
+                  <p className="text-gray-300">clear, maintainable code</p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">Proficient in a wide array of programming languages, frameworks, and tools</p>
+                  <p className="text-gray-300">user-centric problem solving</p>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-neon-green">▹</span>
+                  <p className="text-gray-300">continuous learning mindset</p>
                 </div>
               </div>
               
