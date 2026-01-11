@@ -59,7 +59,7 @@ const About: React.FC = () => {
                 <div className="glassmorphism rounded-xl p-1.5">
                   <div className="relative overflow-hidden rounded-lg">
                     <img 
-                      src="/src/my-pic.jpg" 
+                      src="/my-pic.jpg" 
                       alt="Rohit N" 
                       className="w-full rounded-lg object-cover h-[500px]"
                     />

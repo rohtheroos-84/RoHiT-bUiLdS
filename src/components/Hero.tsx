@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
 import ParticleBackground from './ParticleBackground';
-import { ChevronDown } from 'lucide-react';
+//import { ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
