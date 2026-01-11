@@ -74,7 +74,7 @@ const Education: React.FC = () => {
                 <h3 className="text-xl font-bold font-mono text-white">Vellore Institute of Technology, Chennai</h3>
                 <div className="font-mono text-neon-blue text-sm mb-2">August 2023 – Present</div>
                 <p className="text-gray-300">Bachelors in Computer Science with spl. in AI & ML</p>
-                <p className="font-semibold text-neon-green">GPA: 8.81</p>
+                <p className="font-semibold text-neon-green">CGPA: 8.89</p>
                 <div className="mt-4 border-t border-gray-700 pt-4">
                   <p className="text-gray-400 text-sm">
                     Pursuing a comprehensive curriculum with a specialisation in Artificial Intelligence and Machine Learning.

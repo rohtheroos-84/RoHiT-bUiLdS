@@ -8,30 +8,39 @@ import { Briefcase } from 'lucide-react';
 const experienceData = [
   {
     id: 1,
-    role: "Samsung PRISM Intern",
-    organization: "Samsung R&D Institute India – Bangalore | Remote",
-    period: "July 2025 - Present",
-    description: "Building an AI-powered all-in-one communication app, focusing on context-aware task automation and lightweight on-device AI models.",
+    role: "Technology Intern",
+    organization: "American Express",
+    period: "Jan 2026 - Present",
+    description: "Incoming Technology Intern",
     icon: <Briefcase className="text-neon-blue" size={24} />,
     color: "neon-blue"
   },
   {
     id: 2,
-    role: "Product Development Intern",
-    organization: "Medialogic Solutions Pvt. Ltd. | Chennai, TN",
-    period: "June 2025 – July 2025",
-    description: "Built and deployed a production-grade speech-to-text system, reducing report completion time by over 80% for medical staff in 4000+ hospitals.",
+    role: "Samsung PRISM Intern",
+    organization: "Samsung R&D Institute India – Bangalore | Remote",
+    period: "July 2025 - Jan 2026",
+    description: "Building an AI-powered all-in-one communication app, focusing on context-aware task automation and lightweight on-device AI models.",
     icon: <Briefcase className="text-neon-purple" size={24} />,
     color: "neon-purple"
   },
   {
     id: 3,
+    role: "Product Development Intern",
+    organization: "Medialogic Solutions Pvt. Ltd. | Chennai, TN",
+    period: "June 2025 – July 2025",
+    description: "Built and deployed a production-grade speech-to-text system, reducing report completion time by over 80% for medical staff in 4000+ hospitals.",
+    icon: <Briefcase className="text-neon-green" size={24} />,
+    color: "neon-green"
+  },
+  {
+    id: 4,
     role: "Competitive Programming Member",
     organization: "Google Developer Group (GDG) | VIT Chennai",
     period: "Oct 2024 - Present",
     description: "Active member of GDG's Competitive Programming wing, regularly participating in coding contests and collaborative problem-solving sessions.",
-    icon: <Code className="text-neon-green" size={24} />,
-    color: "neon-green"
+    icon: <Code className="text-neon-blue" size={24} />,
+    color: "neon-blue"
   }
 ];
 
@@ -90,11 +99,13 @@ const Experience: React.FC = () => {
                   y: -5,
                   boxShadow: exp.color === "neon-purple" 
                     ? "0 10px 30px rgba(176, 38, 255, 0.2)"
-                    : "0 10px 30px rgba(57, 255, 20, 0.2)"
+                    : exp.color === "neon-green"
+                    ? "0 10px 30px rgba(57, 255, 20, 0.2)"
+                    : "0 10px 30px rgba(0, 240, 255, 0.2)"
                 }}
                 className="glassmorphism rounded-xl p-6 border-l-4"
                 style={{ 
-                  borderLeftColor: exp.color === "neon-purple" ? "#b026ff" : "#39ff14" 
+                  borderLeftColor: exp.color === "neon-purple" ? "#b026ff" : exp.color === "neon-green" ? "#39ff14" : "#00f0ff"
                 }}
               >
                 <div className="flex flex-col md:flex-row md:items-center">
