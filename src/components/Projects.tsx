@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Shield, Utensils } from 'lucide-react';
+import { ExternalLink, Github, Shield, Utensils, Target, BookOpen, Monitor, Sliders, FileText } from 'lucide-react';
 import ParallaxTilt from 'react-parallax-tilt';
 
 const projectData = [
@@ -23,6 +23,60 @@ const projectData = [
   },
   {
     id: 2,
+    title: "Quality Assurance Assistant – AI-Powered Quality Analysis Platform",
+    description: "An AI-driven quality engineering assistant that combines classical quality tools with modern AI insights for data-driven process improvement.",
+    icon: <Target className="text-neon-purple" size={24} />,
+    details: [
+      "AI chat with multiple personas for novice, expert, and managerial perspectives.",
+      "Automated generation of Pareto charts, histograms, control charts, and Cp/Cpk analysis.",
+      "CSV and Excel data upload with automatic statistical analysis.",
+      "Interactive, exportable visualizations.",
+      "Context-aware AI recommendations for process improvement.",
+      "Modern UI with glassmorphism, animations, and WebGL effects."
+    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Python", "FastAPI", "Gemini AI", "Pandas"],
+    github: "https://github.com/rohtheroos-84/Quality-Assurance-Assistant",
+    link: "https://quality-assurance-assistant.vercel.app",
+    color: "neon-purple"
+  },
+  {
+    id: 3,
+    title: "ZyNc – Full-Stack Comic-Themed Blogging Platform",
+    description: "A full-stack blogging platform with a comic-book aesthetic, featuring user authentication, content moderation, and interactive engagement.",
+    icon: <BookOpen className="text-neon-green" size={24} />,
+    details: [
+      "JWT-based authentication with secure login and signup.",
+      "Role-based admin panel for post approval and moderation.",
+      "Markdown-powered blog creation with likes and comments.",
+      "Search and trending discovery system.",
+      "Fully responsive comic-style UI.",
+      "RESTful API with protected routes and input validation."
+    ],
+    technologies: ["React 19", "Vite", "Node.js", "Express.js", "MongoDB", "JWT"],
+    github: "https://github.com/rohtheroos-84/bLoGgInG_pLaTfOrM",
+    link: "https://tryzync.vercel.app",
+    color: "neon-green"
+  },
+  {
+    id: 4,
+    title: "Paper Thoughts – AI-Powered Lecture Note Mood Analyzer",
+    description: "A notebook-style web app that analyzes lecture notes using AI to detect confusion, confidence, boredom, and alertness, helping students study smarter.",
+    icon: <FileText className="text-neon-blue" size={24} />,
+    details: [
+      "Paragraph-level mood classification with visual timelines and heatmaps.",
+      "AI-generated TL;DR summaries and personalized study plans.",
+      "OCR support for handwritten and printed notes via image upload.",
+      "Difficulty rating and prerequisite detection for confused sections.",
+      "Multi-note tab management with drag-and-drop organization.",
+      "PDF export for offline review and revision."
+    ],
+    technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Gemini AI", "jsPDF"],
+    github: "https://github.com/rohtheroos-84/paper-thoughts",
+    link: "https://trypaperthoughts.vercel.app",
+    color: "neon-blue"
+  },
+  {
+    id: 5,
     title: "SavourAI – Smart Indian Recipe Chatbot",
     description: "An AI-powered recipe recommendation system that identifies fridge ingredients using CNNs and the Gemini API.",
     icon: <Utensils className="text-neon-green" size={24} />,
@@ -36,6 +90,42 @@ const projectData = [
     github: "https://github.com/rohtheroos-84/SavourAI",
     link: "https://github.com/rohtheroos-84/SavourAI",
     color: "neon-green"
+  },
+  {
+    id: 6,
+    title: "LinkedNet 98 – Retro AI LinkedIn Content Assistant",
+    description: "A Windows 98–inspired AI assistant that interviews users to generate authentic, human-sounding LinkedIn posts grounded in real achievements and current context.",
+    icon: <Monitor className="text-neon-purple" size={24} />,
+    details: [
+      "Interview-first AI flow that extracts metrics, emotions, and real insights before writing.",
+      "Real-time web research to ground posts in current trends.",
+      "Deep-thinking content synthesis using large-context Gemini models.",
+      "Retro Windows 98 UI with light and dark modes.",
+      "Editable drafts with one-click copy to clipboard.",
+      "Explicitly avoids generic AI phrasing and buzzwords."
+    ],
+    technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Gemini API"],
+    github: "https://github.com/rohtheroos-84/linkednet-98",
+    link: "https://github.com/rohtheroos-84/linkednet-98",
+    color: "neon-purple"
+  },
+  {
+    id: 7,
+    title: "YeaNah-Synthesizer MKII – Retro Decision Support Tool",
+    description: "A rule-based decision engine with a Windows 95 aesthetic that delivers fast, transparent YES or NO recommendations to combat analysis paralysis.",
+    icon: <Sliders className="text-neon-blue" size={24} />,
+    details: [
+      "Transparent weighted scoring algorithm with no black-box logic.",
+      "5-factor decision analysis covering time, money, risk, energy, and upside.",
+      "Explicit gut-feeling integration as a first-class input.",
+      "Dual UI modes: classic 1995 and cyber night mode.",
+      "Session-based decision history and report export.",
+      "CRT effects and authentic retro UI components."
+    ],
+    technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Lucide React"],
+    github: "https://github.com/rohtheroos-84/YeaNah-Synthesizer-MKII",
+    link: "https://github.com/rohtheroos-84/YeaNah-Synthesizer-MKII",
+    color: "neon-blue"
   }
 ];
 
@@ -89,7 +179,7 @@ const Projects: React.FC = () => {
                 tiltMaxAngleY={5}
                 glareEnable={true}
                 glareMaxOpacity={0.1}
-                glareColor={project.color === "neon-blue" ? "#00f0ff" : "#39ff14"}
+                glareColor={project.color === "neon-blue" ? "#00f0ff" : project.color === "neon-purple" ? "#b026ff" : "#39ff14"}
                 glarePosition="all"
                 scale={hoveredId === project.id ? 1.05 : 1}
                 transitionSpeed={400}
@@ -162,7 +252,7 @@ const Projects: React.FC = () => {
                       style={{
                         width: hoveredId === project.id ? '100%' : '30%',
                         transition: 'width 0.5s ease',
-                        boxShadow: `0 0 10px ${project.color === "neon-blue" ? "#00f0ff" : "#39ff14"}`
+                        boxShadow: `0 0 10px ${project.color === "neon-blue" ? "#00f0ff" : project.color === "neon-purple" ? "#b026ff" : "#39ff14"}`
                       }}
                     />
                   </div>
