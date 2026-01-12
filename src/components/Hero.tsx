@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
               options={{
                 strings: [
                   "cse undergrad building software people don't hate using",
-                  "and tryna write code that works today and won't haunt me tomorrow"
+                  "and trying to write code that works today and won't haunt me tomorrow"
                 ],
                 autoStart: true,
                 loop: true,

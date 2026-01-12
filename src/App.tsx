@@ -131,9 +131,6 @@ function App() {
                 >
                   ⚠️ LIGHT MODE IS BANNED HERE
                 </motion.div>
-                <p className="text-gray-300 font-mono text-sm">
-                  (we only do cyberpunk here)
-                </p>
               </div>
             </motion.div>
           </motion.div>
