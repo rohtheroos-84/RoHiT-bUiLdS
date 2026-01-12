@@ -4,13 +4,13 @@ import { useInView } from 'react-intersection-observer';
 import { 
   SiPython, SiCplusplus, SiSharp, SiC, SiJavascript, SiTypescript, 
   SiR, SiMysql, SiHtml5, SiCss3, SiReact, SiNodedotjs, SiDjango, SiFlask,
-  SiTailwindcss, SiBootstrap, SiNextdotjs, SiMongodb, SiOracle,
+  SiTailwindcss, SiNextdotjs, SiMongodb, SiOracle,
   SiDocker, SiLinux, SiGit, SiPandas, SiNumpy, SiTensorflow, SiScikitlearn,
-  SiPytorch, SiPostman, SiFirebase, SiGithub
+  SiPytorch, SiPostman, SiFirebase,
 } from 'react-icons/si';
-import { TbBrandReactNative, TbBrandVscode, TbBrandVisualStudio } from 'react-icons/tb';
+import { TbBrandReactNative } from 'react-icons/tb';
 import { FaDatabase, FaJava, FaAws } from 'react-icons/fa';
-import { BsFileEarmarkExcel, BsFileEarmarkPpt } from 'react-icons/bs';
+//import { BsFileEarmarkExcel, BsFileEarmarkPpt } from 'react-icons/bs';
 
 type SkillCategory = 'all' | 'languages' | 'webdev' | 'databases' | 'devops' | 'dsml' | 'others';
 
@@ -42,7 +42,7 @@ const skillsData: Skill[] = [
   { name: 'Django', icon: SiDjango, category: ['webdev'], color: '#092E20' },
   { name: 'Flask', icon: SiFlask, category: ['webdev'], color: '#000000' },
   { name: 'Tailwind CSS', icon: SiTailwindcss, category: ['webdev'], color: '#06B6D4' },
-  { name: 'Bootstrap', icon: SiBootstrap, category: ['webdev'], color: '#7952B3' },
+  //{ name: 'Bootstrap', icon: SiBootstrap, category: ['webdev'], color: '#7952B3' },
   { name: 'Next.js', icon: SiNextdotjs, category: ['webdev'], color: '#000000' },
   
   // Databases
@@ -66,11 +66,11 @@ const skillsData: Skill[] = [
   // Others
   { name: 'Postman', icon: SiPostman, category: ['others'], color: '#FF6C37' },
   { name: 'Firebase', icon: SiFirebase, category: ['others'], color: '#FFCA28' },
-  { name: 'GitHub', icon: SiGithub, category: ['others'], color: '#181717' },
-  { name: 'Excel', icon: BsFileEarmarkExcel, category: ['others'], color: '#217346' },
-  { name: 'PowerPoint', icon: BsFileEarmarkPpt, category: ['others'], color: '#B7472A' },
-  { name: 'VS Code', icon: TbBrandVscode, category: ['others'], color: '#007ACC' },
-  { name: 'Visual Studio', icon: TbBrandVisualStudio, category: ['others'], color: '#5C2D91' },
+  //{ name: 'GitHub', icon: SiGithub, category: ['others'], color: '#181717' },
+  //{ name: 'Excel', icon: BsFileEarmarkExcel, category: ['others'], color: '#217346' },
+  //{ name: 'PowerPoint', icon: BsFileEarmarkPpt, category: ['others'], color: '#B7472A' },
+  //{ name: 'VS Code', icon: TbBrandVscode, category: ['others'], color: '#007ACC' },
+  //{ name: 'Visual Studio', icon: TbBrandVisualStudio, category: ['others'], color: '#5C2D91' },
 ];
 
 const categories = [

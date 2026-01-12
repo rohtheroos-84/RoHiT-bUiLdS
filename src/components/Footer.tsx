@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
+//import { Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -23,9 +23,7 @@ const Footer: React.FC = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="flex items-center text-gray-400 text-sm"
           >
-            <span>© {new Date().getFullYear()} | Designed & Built with</span>
-            <Heart className="text-neon-pink mx-1" size={14} fill="#ff2ded" />
-            <span>by Rohit N</span>
+            <span>© {new Date().getFullYear()} | Designed & Built by Rohit N</span>
           </motion.div>
         </div>
       </div>
