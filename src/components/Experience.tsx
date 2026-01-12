@@ -9,7 +9,7 @@ const experienceData = [
   {
     id: 1,
     role: "Technology Intern",
-    organization: "American Express",
+    organization: "American Express Pvt. Ltd. | Hybrid",
     period: "Jan 2026 - Present",
     description: "Incoming Technology Intern",
     icon: <Briefcase className="text-neon-blue" size={24} />,
