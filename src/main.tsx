@@ -4,7 +4,7 @@ import App from './App';
 import './index.css';
 
 // Update title
-document.title = 'Rohit N | AI & ML Portfolio';
+document.title = 'Rohit\'s Portfolio';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

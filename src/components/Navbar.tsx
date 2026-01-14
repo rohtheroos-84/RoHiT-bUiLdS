@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, Download } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -70,6 +70,36 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onThemeToggle }) => {
                 {item.name}
               </motion.a>
             ))}
+            
+            {/* Resume Download Button */}
+            <motion.a
+              href="/Rohit N's Resume.pdf"
+              download="Rohit N - Resume.pdf"
+              className="px-4 py-2 glassmorphism rounded-full flex items-center gap-2 text-neon-blue border border-neon-blue font-mono text-sm"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(0, 240, 255, 0.5)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                boxShadow: [
+                  "0 0 5px rgba(0, 240, 255, 0.3)",
+                  "0 0 15px rgba(0, 240, 255, 0.5)",
+                  "0 0 5px rgba(0, 240, 255, 0.3)"
+                ]
+              }}
+              transition={{
+                boxShadow: {
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }
+              }}
+            >
+              <Download size={16} />
+              Resume
+            </motion.a>
+
             <motion.button
               onClick={onThemeToggle}
               className="p-2 rounded-full"
@@ -153,6 +183,19 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onThemeToggle }) => {
                       {item.name}
                     </motion.a>
                   ))}
+                  
+                  {/* Resume Download - Mobile */}
+                  <motion.a
+                    href="/Rohit N's Resume.pdf"
+                    download="Rohit_N_Resume.pdf"
+                    className="text-neon-blue hover:text-white py-2 font-mono tracking-wide flex items-center gap-2 border-t border-gray-700 pt-6"
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Download size={20} />
+                    Download Resume
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

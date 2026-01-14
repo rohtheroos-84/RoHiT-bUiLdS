@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, Linkedin, Code2, Mail } from 'lucide-react';
+import { Github, Linkedin, Code2, Mail, Download } from 'lucide-react';
 import ParallaxTilt from 'react-parallax-tilt';
 
 const About: React.FC = () => {
@@ -103,6 +103,25 @@ const About: React.FC = () => {
                   <p className="text-gray-300">continuous learning mindset</p>
                 </div>
               </div>
+              
+              {/* Resume Download Button */}
+              <motion.a
+                href="/Rohit N's Resume.pdf"
+                download="Rohit_N_Resume.pdf"
+                className="mt-6 px-8 py-4 glassmorphism rounded-xl flex items-center justify-center gap-3 text-neon-blue border-2 border-neon-blue font-mono text-lg font-bold group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 0 30px rgba(0, 240, 255, 0.5)"
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Download className="w-6 h-6 group-hover:animate-bounce" />
+                <span>DOWNLOAD RESUME</span>
+                <span className="text-xs text-gray-400 font-normal">PDF</span>
+              </motion.a>
               
               <motion.div 
                 className="flex space-x-4 pt-4"
