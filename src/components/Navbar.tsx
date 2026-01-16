@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun, Download } from 'lucide-react';
+import { Menu, X, Sun, Download } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -14,11 +14,10 @@ const navItems = [
 ];
 
 interface NavbarProps {
-  theme: 'dark' | 'light';
   onThemeToggle: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ theme, onThemeToggle }) => {
+const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -107,11 +106,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onThemeToggle }) => {
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? (
-                <Sun className="text-neon-green" size={20} />
-              ) : (
-                <Moon className="text-neon-purple" size={20} />
-              )}
+              <Sun className="text-neon-green" size={20} />
             </motion.button>
           </div>
 
@@ -124,11 +119,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, onThemeToggle }) => {
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? (
-                <Sun className="text-neon-green" size={20} />
-              ) : (
-                <Moon className="text-neon-purple" size={20} />
-              )}
+              <Sun className="text-neon-green" size={20} />
             </motion.button>
             <motion.button
               onClick={() => setMobileMenuOpen(true)}

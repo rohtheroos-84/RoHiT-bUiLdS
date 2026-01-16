@@ -15,7 +15,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [showEasterEgg, setShowEasterEgg] = useState(false);
 
   useEffect(() => {
@@ -27,23 +26,10 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    // Apply theme to document
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
   const handleThemeToggle = () => {
-    if (theme === 'dark') {
-      // 50% chance to show easter egg instead of switching
-      if (Math.random() < 0.5) {
-        setShowEasterEgg(true);
-        setTimeout(() => setShowEasterEgg(false), 2500);
-      } else {
-        setTheme('light');
-      }
-    } else {
-      setTheme('dark');
-    }
+    // Show easter egg - light mode is banned!
+    setShowEasterEgg(true);
+    setTimeout(() => setShowEasterEgg(false), 2500);
   };
 
   if (loading) {
@@ -73,7 +59,7 @@ function App() {
     <>
       <div className="App gradient-bg">
         <Cursor />
-        <Navbar theme={theme} onThemeToggle={handleThemeToggle} />
+        <Navbar onThemeToggle={handleThemeToggle} />
         <main>
           <Hero />
           <About />
