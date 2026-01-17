@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Github, Linkedin, Code2, Mail } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const Contact: React.FC = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
   
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -48,24 +50,48 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      
-      // Reset form data
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
+    // EmailJS configuration
+    const serviceId = 'service_m70kele';
+    const templateId = 'template_xy79nv4';
+    const publicKey = 'FhU2vsVmYOe5m-XDP';
+    
+    // Template parameters matching your EmailJS template
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+    
+    // Send email using EmailJS
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        
+        // Reset form data
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        
+        // Reset submitted state after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        setIsSubmitting(false);
+        setError('Failed to send message. Please try again or email me directly.');
+        
+        // Clear error after 5 seconds
+        setTimeout(() => {
+          setError('');
+        }, 5000);
       });
-      
-      // Reset submitted state after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 3000);
-    }, 1500);
   };
 
   return (
@@ -180,10 +206,16 @@ const Contact: React.FC = () => {
                   className={`w-full py-3 px-6 rounded-lg flex justify-center items-center space-x-2 font-mono ${
                     isSubmitted
                       ? 'bg-neon-green text-primary-bg'
+                      : error
+                      ? 'bg-red-500 bg-opacity-20 border border-red-500 text-red-400'
                       : 'bg-transparent border border-neon-blue text-neon-blue hover:bg-neon-blue hover:bg-opacity-10'
                   }`}
                   whileHover={{ 
-                    boxShadow: isSubmitted ? '0 0 15px rgba(57, 255, 20, 0.5)' : '0 0 15px rgba(0, 240, 255, 0.5)'
+                    boxShadow: isSubmitted 
+                      ? '0 0 15px rgba(57, 255, 20, 0.5)' 
+                      : error
+                      ? '0 0 15px rgba(239, 68, 68, 0.5)'
+                      : '0 0 15px rgba(0, 240, 255, 0.5)'
                   }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -191,6 +223,8 @@ const Contact: React.FC = () => {
                     <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></span>
                   ) : isSubmitted ? (
                     <span>Message Sent!</span>
+                  ) : error ? (
+                    <span>{error}</span>
                   ) : (
                     <>
                       <span>Send Message</span>
