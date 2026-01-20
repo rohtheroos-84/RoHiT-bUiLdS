@@ -13,11 +13,14 @@ import Footer from './components/Footer';
 import Cursor from './components/Cursor';
 import BackToTop from './components/BackToTop';
 import SecretConsole from './components/SecretConsole';
+import MatrixRain from './components/MatrixRain';
+import { useKonamiCode } from './hooks/useKonamiCode';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
+  const konamiActivated = useKonamiCode();
 
   useEffect(() => {
     // Simulate loading time
@@ -130,6 +133,9 @@ function App() {
       
       {/* Secret Console Easter Egg - Type "dev" anywhere */}
       <SecretConsole />
+      
+      {/* Matrix Rain Easter Egg - Konami Code: ↑↑↓↓←→←→BA */}
+      <MatrixRain active={konamiActivated} />
     </>
   );
 }
