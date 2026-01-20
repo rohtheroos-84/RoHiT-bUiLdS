@@ -12,6 +12,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
 import BackToTop from './components/BackToTop';
+import SecretConsole from './components/SecretConsole';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -126,6 +127,9 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* Secret Console Easter Egg - Type "dev" anywhere */}
+      <SecretConsole />
     </>
   );
 }
