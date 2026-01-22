@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface MatrixRainProps {
   active: boolean;
@@ -7,9 +8,16 @@ interface MatrixRainProps {
 
 const MatrixRain: React.FC<MatrixRainProps> = ({ active, duration = 10000 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    if (!active) return;
+    if (active) {
+      setShouldRender(true);
+    }
+  }, [active]);
+
+  useEffect(() => {
+    if (!shouldRender) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -56,16 +64,29 @@ const MatrixRain: React.FC<MatrixRainProps> = ({ active, duration = 10000 }) => 
       clearInterval(interval);
       clearTimeout(timeout);
     };
-  }, [active, duration]);
+  }, [shouldRender, duration]);
 
-  if (!active) return null;
+  const handleAnimationComplete = () => {
+    if (!active) {
+      setShouldRender(false);
+    }
+  };
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 z-50 pointer-events-none"
-      style={{ mixBlendMode: 'screen' }}
-    />
+    <AnimatePresence>
+      {shouldRender && (
+        <motion.canvas
+          ref={canvasRef}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: active ? 1 : 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2 }}
+          onAnimationComplete={handleAnimationComplete}
+          className="fixed inset-0 z-50 pointer-events-none"
+          style={{ mixBlendMode: 'screen' }}
+        />
+      )}
+    </AnimatePresence>
   );
 };
 
