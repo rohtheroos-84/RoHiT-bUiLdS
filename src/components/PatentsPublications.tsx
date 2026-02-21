@@ -21,6 +21,14 @@ const patentsData: Patent[] = [
     description: 'A smart refrigeration system that uses multimodal sensors and AI to detect hidden food items, generate a 3D occupancy map, and perform targeted, zone-specific defrosting only where needed. The system repositions compartments, optimizes cooling, and synchronizes defrost cycles with user cooking schedules for improved efficiency and food preservation.',
     field: 'Mechanical Engineering',
     statusLink: 'https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus'
+  },
+  {
+    title: 'ENDCL: Attention-Enhanced CNN-BiLSTM Model for Automated Cardiovascular Disease Detection',
+    applicationNo: 'DOI: 10.1109/ICERECT65215.2025.11376121',
+    dateIssued: 'September 2025',
+    description: 'Presented at the 2025 5th International Conference on Emerging Research in Electronics, Computer Science and Technology (ICERECT), this paper proposes ENDCL, a hybrid deep learning architecture integrating CNN with residual blocks, Bidirectional LSTM, and Multi-Head Attention for automated cardiovascular disease detection. The model was trained on the Cleveland Heart Disease dataset using feature scaling and SMOTE for class balancing. Experimental evaluation demonstrated superior performance over traditional ML models, achieving 92.3% accuracy with strong precision, recall, and F1-score, highlighting its potential for scalable and reliable clinical decision support.',
+    field: 'Deep Learning | Healthcare AI',
+    statusLink: 'https://ieeexplore.ieee.org/abstract/document/11376121'
   }
 ];
 
