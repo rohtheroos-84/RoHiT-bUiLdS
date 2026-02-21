@@ -109,7 +109,7 @@ const projectData = [
     technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Gemini API"],
     github: "https://github.com/rohtheroos-84/linkednet-98",
     link: "https://github.com/rohtheroos-84/linkednet-98",
-    color: "neon-purple"
+    color: "neon-green"
   }
 ];
 
