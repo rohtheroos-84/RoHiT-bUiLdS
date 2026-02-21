@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Shield, Utensils, Target, BookOpen, Monitor, Sliders, FileText } from 'lucide-react';
+import { ExternalLink, Github, Shield, Target, BookOpen, Monitor, FileText } from 'lucide-react';
 import ParallaxTilt from 'react-parallax-tilt';
 
 const projectData = [
@@ -77,19 +77,21 @@ const projectData = [
   },
   {
     id: 5,
-    title: "SavourAI – Smart Indian Recipe Chatbot",
-    description: "An AI-powered recipe recommendation system that identifies fridge ingredients using CNNs and the Gemini API.",
-    icon: <Utensils className="text-neon-green" size={24} />,
+    title: "EM-Connect – Event Management System (Event-Driven Architecture)",
+    description: "A backend-first event management system built with Spring Boot and Golang using an event-driven microservices architecture.",
+    icon: <Monitor className="text-neon-purple" size={24} />,
     details: [
-      "Implemented a hybrid filtering engine for personalized meal recommendations.",
-      "Designed and deployed a full-stack web app with a React frontend and Flask backend.",
-      "Developed a detailed recipe database with nutritional info to promote health-conscious decisions.",
-      "Focused on reducing food waste and reviving traditional Indian cooking practices."
+      "Spring Boot API with JWT authentication and role-based access control.",
+      "Event lifecycle management with strict state machine enforcement.",
+      "Atomic capacity handling using pessimistic locking to prevent overbooking.",
+      "RabbitMQ-based domain event publishing for decoupled services.",
+      "Golang workers for ticket generation, email notifications, and WebSocket hub.",
+      "Asynchronous QR ticket generation with validation endpoints."
     ],
-    technologies: ["Python", "React", "Flask", "CNN", "Gemini API", "Hybrid Filtering"],
-    github: "https://github.com/rohtheroos-84/SavourAI",
-    link: "https://github.com/rohtheroos-84/SavourAI",
-    color: "neon-green"
+    technologies: ["Spring Boot", "Java 17", "Golang", "RabbitMQ", "PostgreSQL", "JWT", "Docker"],
+    github: "https://github.com/rohtheroos-84/EM-Connect",
+    link: "https://github.com/rohtheroos-84/EM-Connect",
+    color: "neon-purple"
   },
   {
     id: 6,
@@ -108,24 +110,6 @@ const projectData = [
     github: "https://github.com/rohtheroos-84/linkednet-98",
     link: "https://github.com/rohtheroos-84/linkednet-98",
     color: "neon-purple"
-  },
-  {
-    id: 7,
-    title: "YeaNah-Synthesizer MKII – Retro Decision Support Tool",
-    description: "A rule-based decision engine with a Windows 95 aesthetic that delivers fast, transparent YES or NO recommendations to combat analysis paralysis.",
-    icon: <Sliders className="text-neon-blue" size={24} />,
-    details: [
-      "Transparent weighted scoring algorithm with no black-box logic.",
-      "5-factor decision analysis covering time, money, risk, energy, and upside.",
-      "Explicit gut-feeling integration as a first-class input.",
-      "Dual UI modes: classic 1995 and cyber night mode.",
-      "Session-based decision history and report export.",
-      "CRT effects and authentic retro UI components."
-    ],
-    technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Lucide React"],
-    github: "https://github.com/rohtheroos-84/YeaNah-Synthesizer-MKII",
-    link: "https://github.com/rohtheroos-84/YeaNah-Synthesizer-MKII",
-    color: "neon-blue"
   }
 ];
 
@@ -196,13 +180,13 @@ const Projects: React.FC = () => {
                     <div className={`text-${project.color} absolute top-6 right-6`}>
                       {project.icon}
                     </div>
-                    
+
                     <h3 className={`text-xl font-bold mb-2 font-mono text-${project.color}`}>
                       {project.title}
                     </h3>
-                    
+
                     <p className="text-white text-lg mb-4">{project.description}</p>
-                    
+
                     <ul className="space-y-2 mb-6">
                       {project.details.map((detail, index) => (
                         <li key={index} className="flex items-start">
@@ -211,7 +195,7 @@ const Projects: React.FC = () => {
                         </li>
                       ))}
                     </ul>
-                    
+
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.map((tech, index) => (
                         <span 
@@ -222,7 +206,7 @@ const Projects: React.FC = () => {
                         </span>
                       ))}
                     </div>
-                    
+
                     <div className="flex space-x-4">
                       <motion.a
                         href={project.github}
@@ -234,7 +218,7 @@ const Projects: React.FC = () => {
                       >
                         <Github className={`text-${project.color}`} size={18} />
                       </motion.a>
-                      
+
                       <motion.a
                         href={project.link}
                         target="_blank"
@@ -246,7 +230,7 @@ const Projects: React.FC = () => {
                         <ExternalLink className={`text-${project.color}`} size={18} />
                       </motion.a>
                     </div>
-                    
+
                     <div
                       className={`absolute bottom-0 left-0 h-1 bg-${project.color}`}
                       style={{
