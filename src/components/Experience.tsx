@@ -20,7 +20,7 @@ const experienceData = [
     role: "Samsung PRISM Intern",
     organization: "Samsung R&D Institute India – Bangalore | Remote",
     period: "July 2025 - Jan 2026",
-    description: "Building an AI-powered all-in-one communication app, focusing on context-aware task automation and lightweight on-device AI models.",
+    description: "Built an AI-powered all-in-one communication app, focusing on context-aware task automation and lightweight on-device AI models.",
     icon: <Briefcase className="text-neon-purple" size={24} />,
     color: "neon-purple"
   },
