@@ -26,9 +26,17 @@ const patentsData: Patent[] = [
     title: 'ENDCL: Attention-Enhanced CNN-BiLSTM Model for Automated Cardiovascular Disease Detection',
     applicationNo: 'DOI: 10.1109/ICERECT65215.2025.11376121',
     dateIssued: 'September 2025',
-    description: 'Presented at the 2025 5th International Conference on Emerging Research in Electronics, Computer Science and Technology (ICERECT), this paper proposes ENDCL, a hybrid deep learning architecture integrating CNN with residual blocks, Bidirectional LSTM, and Multi-Head Attention for automated cardiovascular disease detection. The model was trained on the Cleveland Heart Disease dataset using feature scaling and SMOTE for class balancing. Experimental evaluation demonstrated superior performance over traditional ML models, achieving 92.3% accuracy with strong precision, recall, and F1-score, highlighting its potential for scalable and reliable clinical decision support.',
+    description: 'Presented at the 2025 5th International Conference on Emerging Research in Electronics, Computer Science and Technology (ICERECT). ENDCL is a hybrid deep learning architecture combining CNN residual blocks, BiLSTM, and multi-head attention for automated cardiovascular disease detection. Trained with feature scaling and SMOTE for class balancing, the model showed strong accuracy and robust clinical-potential metrics.',
     field: 'Deep Learning | Healthcare AI',
     statusLink: 'https://ieeexplore.ieee.org/abstract/document/11376121'
+  },
+  {
+    title: 'Deep Learning Models for Intelligent IoT Ecosystems',
+    applicationNo: 'DOI: 10.4018/979-8-3373-7062-0.ch002',
+    dateIssued: 'September 2025',
+    description: 'Book chapter in AI in Advanced Systems, Robotics, and Healthcare (IGI Global). Reviews integration of deep learning with IoT, covering CNNs, RNNs, LSTMs, autoencoders, edge deployment strategies, lightweight models, federated learning, and challenges such as latency, heterogeneity, and privacy. Discusses emerging trends including neuromorphic computing, explainable AI, and 5G/6G enabling AIoT deployments.',
+    field: 'Deep Learning | IoT',
+    statusLink: 'https://www.igi-global.com/gateway/chapter/390522'
   }
 ];
 
@@ -99,20 +107,17 @@ const PatentsPublications: React.FC = () => {
                       y: -10
                     }}
                   >
-                    {/* Scanline effect */}
                     <div className="absolute inset-0 opacity-5 pointer-events-none">
                       <div className="h-full w-full" style={{
                         backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 45, 237, 0.3) 2px, rgba(255, 45, 237, 0.3) 4px)'
                       }} />
                     </div>
 
-                    {/* Corner decorations */}
                     <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-neon-pink"></div>
                     <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-neon-pink"></div>
                     <div className="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-neon-pink"></div>
                     <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-neon-pink"></div>
 
-                    {/* Header */}
                     <div className="flex items-start justify-between mb-4 relative z-10">
                       <div className="flex items-center gap-4">
                         <motion.div
@@ -149,7 +154,6 @@ const PatentsPublications: React.FC = () => {
                       </motion.div>
                     </div>
 
-                    {/* Title */}
                     <motion.h3
                       className="text-2xl md:text-3xl font-bold font-mono text-white mb-4 leading-tight group-hover:text-neon-pink transition-colors"
                       whileHover={{ color: '#ff2ded' }}
@@ -157,7 +161,6 @@ const PatentsPublications: React.FC = () => {
                       {patent.title}
                     </motion.h3>
 
-                    {/* Metadata */}
                     <div className="flex flex-wrap gap-4 mb-4 text-sm">
                       <motion.div
                         className="font-mono text-neon-blue"
@@ -176,7 +179,6 @@ const PatentsPublications: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Description */}
                     <motion.div
                       className="relative mb-6"
                       animate={{ height: expandedCard === index ? 'auto' : '80px' }}
@@ -190,7 +192,6 @@ const PatentsPublications: React.FC = () => {
                       )}
                     </motion.div>
 
-                    {/* Action Buttons */}
                     <div className="flex flex-wrap gap-4">
                       <motion.a
                         href={patent.statusLink}
@@ -230,7 +231,6 @@ const PatentsPublications: React.FC = () => {
                       </motion.button>
                     </div>
 
-                    {/* Floating particles effect */}
                     <motion.div
                       className="absolute top-1/2 left-1/2 w-2 h-2 bg-neon-pink rounded-full opacity-50"
                       animate={{
@@ -264,7 +264,6 @@ const PatentsPublications: React.FC = () => {
             ))}
           </div>
 
-          {/* Future placeholder */}
           <motion.div
             variants={itemVariants}
             className="text-center mt-8"
