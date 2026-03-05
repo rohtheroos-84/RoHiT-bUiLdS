@@ -97,7 +97,7 @@ const projectData = [
     id: 6,
     title: "LinkedNet 98 – Retro AI LinkedIn Content Assistant",
     description: "A Windows 98–inspired AI assistant that interviews users to generate authentic, human-sounding LinkedIn posts grounded in real achievements and current context.",
-    icon: <Monitor className="text-neon-purple" size={24} />,
+    icon: <Monitor className="text-neon-green" size={24} />,
     details: [
       "Interview-first AI flow that extracts metrics, emotions, and real insights before writing.",
       "Real-time web research to ground posts in current trends.",
@@ -168,6 +168,7 @@ const Projects: React.FC = () => {
                 scale={hoveredId === project.id ? 1.05 : 1}
                 transitionSpeed={400}
                 tiltReverse={true}
+                style={{ overflow: 'hidden', borderRadius: '0.75rem' }}
               >
                 <motion.div
                   variants={cardVariants}
@@ -181,7 +182,7 @@ const Projects: React.FC = () => {
                       {project.icon}
                     </div>
 
-                    <h3 className={`text-xl font-bold mb-2 font-mono text-${project.color}`}>
+                    <h3 className={`text-xl font-bold mb-2 font-mono text-${project.color} pr-10`}>
                       {project.title}
                     </h3>
 
