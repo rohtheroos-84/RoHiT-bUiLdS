@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-//import { Heart } from 'lucide-react';
+import { Eye } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  const [viewCount, setViewCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const fetchViewCount = async () => {
+      try {
+        const res = await fetch('https://api.counterapi.dev/v1/rohitn-portfolio/visits/up');
+        const data = await res.json();
+        setViewCount(data.count);
+      } catch {
+        setViewCount(null);
+      }
+    };
+
+    fetchViewCount();
+  }, []);
+
   return (
     <footer className="bg-secondary-bg py-8 border-t border-gray-800">
       <div className="container mx-auto px-4">
@@ -16,6 +32,18 @@ const Footer: React.FC = () => {
             <span className="neon-text-blue">ROHIT</span>
             <span className="neon-text-purple">.N</span>
           </motion.div>
+
+          {viewCount !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="flex items-center gap-1.5 text-gray-500 text-xs font-mono mb-4 md:mb-0"
+            >
+              <Eye size={12} className="text-neon-blue opacity-60" />
+              <span>{viewCount.toLocaleString()} visits</span>
+            </motion.div>
+          )}
           
           <motion.div 
             initial={{ opacity: 0 }}
