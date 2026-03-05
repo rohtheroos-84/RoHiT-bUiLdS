@@ -161,11 +161,10 @@ body {
 }
 
 .project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
 }
 
@@ -180,16 +179,28 @@ body {
   transform: scale(1.05);
 }
 
-/* Reduce motion - disables ALL animations and transitions */
+/* Reduce motion - disables CSS animations and transitions */
 .reduce-motion *,
 .reduce-motion *::before,
 .reduce-motion *::after {
   animation-duration: 0.001ms !important;
+  animation-delay: 0ms !important;
   animation-iteration-count: 1 !important;
   transition-duration: 0.001ms !important;
+  transition-delay: 0ms !important;
   scroll-behavior: auto !important;
 }
 
 .reduce-motion .gradient-bg {
   animation: none !important;
+  background-size: 100% 100% !important;
+}
+
+.reduce-motion .project-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.reduce-motion .skill-tag:hover {
+  transform: none !important;
 }

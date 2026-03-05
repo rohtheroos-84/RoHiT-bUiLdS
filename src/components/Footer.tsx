@@ -8,11 +8,25 @@ const Footer: React.FC = () => {
   useEffect(() => {
     const fetchViewCount = async () => {
       try {
-        const res = await fetch('https://api.counterapi.dev/v1/rohitn-portfolio/visits/up');
+        const namespace = 'rohitn-portfolio-v2';
+        const key = 'page-visits';
+        // Use countapi.xyz as primary
+        const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
         const data = await res.json();
-        setViewCount(data.count);
+        if (data && data.value) {
+          setViewCount(data.value);
+        }
       } catch {
-        setViewCount(null);
+        // Fallback: try alternative endpoint
+        try {
+          const res = await fetch('https://api.counterapi.dev/v1/rohitn-portfolio/visits/up');
+          const data = await res.json();
+          if (data && data.count) {
+            setViewCount(data.count);
+          }
+        } catch {
+          setViewCount(null);
+        }
       }
     };
 

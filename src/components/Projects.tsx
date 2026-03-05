@@ -165,7 +165,6 @@ const Projects: React.FC = () => {
                 glareMaxOpacity={0.1}
                 glareColor={project.color === "neon-blue" ? "#00f0ff" : project.color === "neon-purple" ? "#b026ff" : "#39ff14"}
                 glarePosition="all"
-                scale={hoveredId === project.id ? 1.05 : 1}
                 transitionSpeed={400}
                 tiltReverse={true}
                 style={{ overflow: 'hidden', borderRadius: '0.75rem' }}
@@ -175,7 +174,6 @@ const Projects: React.FC = () => {
                   className={`glassmorphism rounded-xl overflow-hidden project-card`}
                   onMouseEnter={() => setHoveredId(project.id)}
                   onMouseLeave={() => setHoveredId(null)}
-                  whileHover={{ y: -10 }}
                 >
                   <div className="p-6 relative">
                     <div className={`text-${project.color} absolute top-6 right-6`}>
