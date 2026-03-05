@@ -179,3 +179,17 @@ body {
   color: var(--primary-bg);
   transform: scale(1.05);
 }
+
+/* Reduce motion - disables ALL animations and transitions */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+.reduce-motion .gradient-bg {
+  animation: none !important;
+}
