@@ -14,6 +14,7 @@ import Cursor from './components/Cursor';
 import BackToTop from './components/BackToTop';
 import SecretConsole from './components/SecretConsole';
 import MatrixRain from './components/MatrixRain';
+import GitHubHeatmap from './components/GitHubHeatmap';
 import { useKonamiCode } from './hooks/useKonamiCode';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -68,6 +69,7 @@ function App() {
         <main>
           <Hero />
           <About />
+          <GitHubHeatmap />
           <Education />
           <Projects />
           <Experience />
