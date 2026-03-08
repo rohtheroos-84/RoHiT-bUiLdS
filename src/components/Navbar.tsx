@@ -74,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
             
             {/* Resume Download Button */}
             <motion.a
-              href="/Rohit N's Resume.pdf"
+              href="/Rohit's Resume.pdf"
               download="Rohit N - Resume.pdf"
               className="px-4 py-2 glassmorphism rounded-full flex items-center gap-2 text-neon-blue border border-neon-blue font-mono text-sm"
               whileHover={{ 
@@ -207,7 +207,7 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
                   
                   {/* Resume Download - Mobile */}
                   <motion.a
-                    href="/Rohit N's Resume.pdf"
+                    href="/Rohit's Resume.pdf"
                     download="Rohit_N_Resume.pdf"
                     className="text-neon-blue hover:text-white py-2 font-mono tracking-wide flex items-center gap-2 border-t border-gray-700 pt-6"
                     whileHover={{ x: 5 }}

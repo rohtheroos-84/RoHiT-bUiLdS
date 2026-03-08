@@ -106,7 +106,7 @@ const About: React.FC = () => {
               
               {/* Resume Download Button */}
               <motion.a
-                href="/Rohit N's Resume.pdf"
+                href="/Rohit's Resume.pdf"
                 download="Rohit_N_Resume.pdf"
                 className="mt-6 px-8 py-4 glassmorphism rounded-xl flex items-center justify-center gap-3 text-neon-blue border-2 border-neon-blue font-mono text-lg font-bold group"
                 initial={{ opacity: 0, y: 20 }}
