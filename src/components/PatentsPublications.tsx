@@ -37,6 +37,14 @@ const patentsData: Patent[] = [
     description: 'Book chapter in AI in Advanced Systems, Robotics, and Healthcare (IGI Global). Reviews integration of deep learning with IoT, covering CNNs, RNNs, LSTMs, autoencoders, edge deployment strategies, lightweight models, federated learning, and challenges such as latency, heterogeneity, and privacy. Discusses emerging trends including neuromorphic computing, explainable AI, and 5G/6G enabling AIoT deployments.',
     field: 'Deep Learning | IoT',
     statusLink: 'https://www.igi-global.com/gateway/chapter/390522'
+  },
+  {
+    title: 'DETECTION OF UNDERGROUND WATER PIPELINES LEAKAGE USING AERIAL ACOUSTIC SYSTEM',
+    applicationNo: '202641016585',
+    dateIssued: 'Published: 20 Feb 2026',
+    description: 'A UAV-based pipeline monitoring system that employs passive surface acoustic wave sensors attached to underground pipelines. The UAV interrogates sensors via RF signals, extracts acoustic vibration features, and applies machine learning models to detect and localize leaks in real time. The system integrates environmental sensors, edge processing, and GPS-enabled alerts to enable autonomous monitoring of large pipeline networks.',
+    field: 'Physics | AI-based Sensing Systems',
+    statusLink: 'https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus'
   }
 ];
 
