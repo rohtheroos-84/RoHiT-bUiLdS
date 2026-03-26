@@ -90,7 +90,7 @@ const projectData = [
     ],
     technologies: ["Spring Boot", "Java 17", "Golang", "RabbitMQ", "PostgreSQL", "JWT", "Docker"],
     github: "https://github.com/rohtheroos-84/EM-Connect",
-    link: "https://github.com/rohtheroos-84/EM-Connect",
+    link: "https://tryemconnect.netlify.app",
     color: "neon-purple"
   },
   {
