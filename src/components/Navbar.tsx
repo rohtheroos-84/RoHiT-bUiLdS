@@ -43,10 +43,10 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
         className="fixed inset-x-0 top-3 z-40 px-3 sm:px-5 lg:px-8 pointer-events-none"
       >
         <div
-          className={`relative mx-auto max-w-[1320px] rounded-[1.8rem] border overflow-hidden pointer-events-auto transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
+          className={`relative mx-auto max-w-[1320px] rounded-[1.8rem] overflow-hidden pointer-events-auto transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
             isScrolled
-              ? 'bg-[rgba(4,10,28,0.34)] border-cyan-300/28 shadow-[0_10px_34px_rgba(0,0,0,0.4),0_0_28px_rgba(0,240,255,0.2)] backdrop-blur-[22px] backdrop-saturate-165'
-              : 'bg-[rgba(4,10,28,0.26)] border-cyan-200/22 shadow-[0_8px_30px_rgba(0,0,0,0.3),0_0_22px_rgba(0,240,255,0.16)] backdrop-blur-[20px] backdrop-saturate-170'
+              ? 'bg-[rgba(4,10,28,0.34)] shadow-[0_10px_34px_rgba(0,0,0,0.4),0_0_28px_rgba(0,240,255,0.2),inset_0_1px_0_rgba(0,240,255,0.08)] backdrop-blur-[22px] backdrop-saturate-165'
+              : 'bg-[rgba(4,10,28,0.26)] shadow-[0_8px_30px_rgba(0,0,0,0.3),0_0_22px_rgba(0,240,255,0.16),inset_0_1px_0_rgba(0,240,255,0.06)] backdrop-blur-[20px] backdrop-saturate-170'
           }`}
         >
           <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_18%_0%,rgba(0,240,255,0.15),transparent_42%),radial-gradient(circle_at_80%_110%,rgba(176,38,255,0.12),transparent_52%),linear-gradient(112deg,rgba(0,240,255,0.04),rgba(176,38,255,0.04)_46%,rgba(0,240,255,0.025))]" />
