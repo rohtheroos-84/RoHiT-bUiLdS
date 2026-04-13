@@ -45,17 +45,12 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
         <div
           className={`relative mx-auto max-w-[1320px] rounded-[1.8rem] border overflow-hidden pointer-events-auto transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
             isScrolled
-              ? 'bg-[rgba(6,12,32,0.44)] border-cyan-300/35 shadow-[0_10px_34px_rgba(0,0,0,0.4),0_0_32px_rgba(0,240,255,0.22)] backdrop-blur-[20px] backdrop-saturate-150'
-              : 'bg-[rgba(6,12,32,0.3)] border-cyan-200/25 shadow-[0_8px_30px_rgba(0,0,0,0.3),0_0_24px_rgba(0,240,255,0.18)] backdrop-blur-[18px] backdrop-saturate-160'
+              ? 'bg-[rgba(4,10,28,0.34)] border-cyan-300/28 shadow-[0_10px_34px_rgba(0,0,0,0.4),0_0_28px_rgba(0,240,255,0.2)] backdrop-blur-[22px] backdrop-saturate-165'
+              : 'bg-[rgba(4,10,28,0.26)] border-cyan-200/22 shadow-[0_8px_30px_rgba(0,0,0,0.3),0_0_22px_rgba(0,240,255,0.16)] backdrop-blur-[20px] backdrop-saturate-170'
           }`}
         >
-          <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_18%_0%,rgba(255,255,255,0.1),transparent_45%),radial-gradient(circle_at_80%_110%,rgba(0,240,255,0.14),transparent_50%),linear-gradient(115deg,rgba(255,255,255,0.04),rgba(176,38,255,0.03)_42%,rgba(0,240,255,0.04)_100%)]" />
-          <div className="pointer-events-none absolute inset-[1px] rounded-[calc(1.8rem-1px)] border border-white/10" />
-          <div
-            className={`relative flex justify-between items-center px-4 md:px-6 lg:px-8 transition-[padding] duration-300 ${
-              isScrolled ? 'py-2.5' : 'py-3.5'
-            }`}
-          >
+          <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_18%_0%,rgba(0,240,255,0.15),transparent_42%),radial-gradient(circle_at_80%_110%,rgba(176,38,255,0.12),transparent_52%),linear-gradient(112deg,rgba(0,240,255,0.04),rgba(176,38,255,0.04)_46%,rgba(0,240,255,0.025))]" />
+          <div className="relative flex justify-between items-center px-4 md:px-6 lg:px-8 py-3.5">
           <motion.a
             href="#home"
             className="text-lg md:text-xl font-mono font-bold tracking-wider"
