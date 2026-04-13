@@ -30,6 +30,8 @@ const parseDateKey = (key: string) => {
   return new Date(y, m - 1, d);
 };
 
+const MIN_MONTH_LABEL_GAP_COLUMNS = 3;
+
 const GitHubHeatmap: React.FC = () => {
   const [contributions, setContributions] = useState<ContributionWeek[]>([]);
   const [totalContributions, setTotalContributions] = useState(0);
@@ -117,31 +119,58 @@ const GitHubHeatmap: React.FC = () => {
     if (contributions.length === 0) return [];
 
     const flatDays = contributions.flatMap((week) => week.days);
-    const labels: { label: string; index: number }[] = [];
+    const rawLabels: { label: string; index: number }[] = [];
     let lastMonth = parseDateKey(flatDays[0].date).getMonth();
 
-    labels.push({ label: months[lastMonth], index: 0 });
+    rawLabels.push({ label: months[lastMonth], index: 0 });
 
     flatDays.forEach((day, dayIndex) => {
       const month = parseDateKey(day.date).getMonth();
       if (month !== lastMonth) {
         const columnIndex = Math.floor(dayIndex / 7);
 
-        if (labels.length > 0 && labels[labels.length - 1].index === columnIndex) {
-          labels[labels.length - 1] = { label: months[month], index: columnIndex };
+        if (rawLabels.length > 0 && rawLabels[rawLabels.length - 1].index === columnIndex) {
+          rawLabels[rawLabels.length - 1] = { label: months[month], index: columnIndex };
         } else {
-          labels.push({ label: months[month], index: columnIndex });
+          rawLabels.push({ label: months[month], index: columnIndex });
         }
 
         lastMonth = month;
       }
     });
 
-    return labels;
+    if (rawLabels.length <= 1) return rawLabels;
+
+    // If range starts mid-month, the first label can be visually cramped against the next one.
+    // Drop the first label when it's too close, then enforce minimum gaps.
+    const normalized = [...rawLabels];
+    if (normalized[1].index - normalized[0].index < MIN_MONTH_LABEL_GAP_COLUMNS) {
+      normalized.shift();
+    }
+
+    if (normalized.length <= 1) return normalized;
+
+    const filtered = [normalized[0]];
+    for (let i = 1; i < normalized.length; i++) {
+      const prev = filtered[filtered.length - 1];
+      const current = normalized[i];
+      if (current.index - prev.index >= MIN_MONTH_LABEL_GAP_COLUMNS) {
+        filtered.push(current);
+      }
+    }
+
+    const lastRaw = normalized[normalized.length - 1];
+    const lastFiltered = filtered[filtered.length - 1];
+    if (lastFiltered.index !== lastRaw.index) {
+      filtered.push(lastRaw);
+    }
+
+    return filtered;
   };
 
   const monthLabels = getMonthLabels();
   const monthTrackWidth = Math.max(contributions.length * COLUMN_WIDTH, 0);
+  const columnCount = Math.max(contributions.length, 1);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -189,14 +218,14 @@ const GitHubHeatmap: React.FC = () => {
                 {/* Month labels */}
                 <div
                   className="relative mb-1 ml-8 h-4"
-                  style={{ width: `${monthTrackWidth}px`, minWidth: `${monthTrackWidth}px` }}
+                  style={{ width: '100%', minWidth: `${monthTrackWidth}px` }}
                 >
                   {monthLabels.map((m, i) => (
                     <span
                       key={i}
                       className="absolute text-[10px] font-mono text-gray-500"
                       style={{
-                        left: `${m.index * COLUMN_WIDTH}px`,
+                        left: `${(m.index / columnCount) * 100}%`,
                       }}
                     >
                       {m.label}
@@ -215,27 +244,44 @@ const GitHubHeatmap: React.FC = () => {
                   </div>
 
                   {/* Heatmap grid */}
-                  {contributions.map((week, weekIndex) => (
-                    <div key={weekIndex} className="flex flex-col gap-[2px]">
-                      {week.days.map((day, dayIndex) => (
-                        <motion.div
-                          key={`${weekIndex}-${dayIndex}`}
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                          transition={{
-                            delay: weekIndex * 0.008 + dayIndex * 0.002,
-                            duration: 0.2,
-                          }}
-                          className="w-[11px] h-[11px] rounded-sm cursor-pointer"
-                          style={{
-                            backgroundColor: getLevelColor(day.level),
-                            boxShadow: getLevelGlow(day.level),
-                          }}
-                          title={`${day.date}: ${day.count} contribution${day.count !== 1 ? 's' : ''}`}
-                        />
-                      ))}
-                    </div>
-                  ))}
+                  <div
+                    className="grid gap-[2px] flex-1"
+                    style={{
+                      gridTemplateColumns: `repeat(${columnCount}, minmax(${CELL_SIZE}px, 1fr))`,
+                      width: '100%',
+                      minWidth: `${monthTrackWidth}px`,
+                    }}
+                  >
+                    {contributions.map((week, weekIndex) => (
+                      <div key={weekIndex} className="grid gap-[2px]" style={{ gridTemplateRows: `repeat(7, ${CELL_SIZE}px)` }}>
+                        {Array.from({ length: 7 }).map((_, dayIndex) => {
+                          const day = week.days[dayIndex];
+
+                          if (!day) {
+                            return <div key={`${weekIndex}-${dayIndex}`} className="w-[11px] h-[11px]" />;
+                          }
+
+                          return (
+                            <motion.div
+                              key={`${weekIndex}-${dayIndex}`}
+                              initial={{ opacity: 0, scale: 0 }}
+                              animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                              transition={{
+                                delay: weekIndex * 0.008 + dayIndex * 0.002,
+                                duration: 0.2,
+                              }}
+                              className="w-[11px] h-[11px] rounded-sm cursor-pointer"
+                              style={{
+                                backgroundColor: getLevelColor(day.level),
+                                boxShadow: getLevelGlow(day.level),
+                              }}
+                              title={`${day.date}: ${day.count} contribution${day.count !== 1 ? 's' : ''}`}
+                            />
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Legend */}
