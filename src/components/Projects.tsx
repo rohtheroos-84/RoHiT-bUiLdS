@@ -12,13 +12,15 @@ const projectData = [
     icon: <Shield className="text-neon-blue" size={24} />,
     details: [
       "Engineered a ViT-based system, achieving 88.13% validation accuracy on the FaceForensics++ dataset.",
+      "Extracted and processed 400+ videos, converting them into frame-level datasets for optimal transformer-based learning.",
       "Deployed a Flask backend for real-time video uploads and frame-by-frame classification.",
       "Enhanced detection precision using color jitter, horizontal flips, and normalization techniques.",
-      "Selected among top 150 out of 2000+ teams at HackHub'25."
+      "Project selected among top 150 out of 2000+ teams at HackHub'25, hosted by IEEE-CS VITC and powered by GitHub.",
+      "Collaborated with 3 teammates to deliver the end-to-end product in a 36-hour hackathon environment."
     ],
     technologies: ["Python", "ViT", "Flask", "Deep Learning"],
-    github: "https://github.com/rohtheroos-84/HackHobbits",
-    link: "https://github.com/rohtheroos-84/HackHobbits",
+    github: "https://github.com/rohtheroos-84/DeepShield",
+    link: "https://github.com/rohtheroos-84/DeepShield",
     color: "neon-blue"
   },
   {
