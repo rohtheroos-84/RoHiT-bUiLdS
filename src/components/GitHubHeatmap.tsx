@@ -14,6 +14,21 @@ interface ContributionWeek {
 }
 
 const GITHUB_USERNAME = 'rohtheroos-84';
+const CELL_SIZE = 11;
+const CELL_GAP = 2;
+const COLUMN_WIDTH = CELL_SIZE + CELL_GAP;
+
+const formatDateKey = (date: Date) => {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+};
+
+const parseDateKey = (key: string) => {
+  const [y, m, d] = key.split('-').map(Number);
+  return new Date(y, m - 1, d);
+};
 
 const GitHubHeatmap: React.FC = () => {
   const [contributions, setContributions] = useState<ContributionWeek[]>([]);
@@ -32,11 +47,24 @@ const GitHubHeatmap: React.FC = () => {
         const data = await res.json();
 
         if (data && data.contributions) {
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          const oneYearAgo = new Date(today);
+          oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
+          const todayKey = formatDateKey(today);
+          const oneYearAgoKey = formatDateKey(oneYearAgo);
+
+          const filteredDays = (data.contributions as ContributionDay[])
+            .filter((day) => day.date >= oneYearAgoKey && day.date <= todayKey)
+            .sort((a, b) => a.date.localeCompare(b.date));
+
           const weeks: ContributionWeek[] = [];
           let week: ContributionDay[] = [];
           let total = 0;
 
-          data.contributions.forEach((day: { date: string; count: number; level: number }) => {
+          filteredDays.forEach((day) => {
             week.push({
               date: day.date,
               count: day.count,
@@ -87,22 +115,33 @@ const GitHubHeatmap: React.FC = () => {
 
   const getMonthLabels = () => {
     if (contributions.length === 0) return [];
-    const labels: { label: string; index: number }[] = [];
-    let lastMonth = -1;
 
-    contributions.forEach((week, weekIndex) => {
-      if (week.days.length > 0) {
-        const date = new Date(week.days[0].date);
-        const month = date.getMonth();
-        if (month !== lastMonth) {
-          labels.push({ label: months[month], index: weekIndex });
-          lastMonth = month;
+    const flatDays = contributions.flatMap((week) => week.days);
+    const labels: { label: string; index: number }[] = [];
+    let lastMonth = parseDateKey(flatDays[0].date).getMonth();
+
+    labels.push({ label: months[lastMonth], index: 0 });
+
+    flatDays.forEach((day, dayIndex) => {
+      const month = parseDateKey(day.date).getMonth();
+      if (month !== lastMonth) {
+        const columnIndex = Math.floor(dayIndex / 7);
+
+        if (labels.length > 0 && labels[labels.length - 1].index === columnIndex) {
+          labels[labels.length - 1] = { label: months[month], index: columnIndex };
+        } else {
+          labels.push({ label: months[month], index: columnIndex });
         }
+
+        lastMonth = month;
       }
     });
 
     return labels;
   };
+
+  const monthLabels = getMonthLabels();
+  const monthTrackWidth = Math.max(contributions.length * COLUMN_WIDTH, 0);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -148,17 +187,16 @@ const GitHubHeatmap: React.FC = () => {
             ) : (
               <div className="overflow-x-auto">
                 {/* Month labels */}
-                <div className="flex mb-1 ml-8">
-                  {getMonthLabels().map((m, i) => (
+                <div
+                  className="relative mb-1 ml-8 h-4"
+                  style={{ width: `${monthTrackWidth}px`, minWidth: `${monthTrackWidth}px` }}
+                >
+                  {monthLabels.map((m, i) => (
                     <span
                       key={i}
-                      className="text-[10px] font-mono text-gray-500"
+                      className="absolute text-[10px] font-mono text-gray-500"
                       style={{
-                        position: 'relative',
-                        left: `${m.index * 13}px`,
-                        marginRight: i < getMonthLabels().length - 1
-                          ? `${((getMonthLabels()[i + 1]?.index || 0) - m.index) * 13 - 26}px`
-                          : '0',
+                        left: `${m.index * COLUMN_WIDTH}px`,
                       }}
                     >
                       {m.label}
