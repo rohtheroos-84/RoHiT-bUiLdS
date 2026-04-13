@@ -169,7 +169,12 @@ const GitHubHeatmap: React.FC = () => {
   };
 
   const monthLabels = getMonthLabels();
-  const monthTrackWidth = Math.max(contributions.length * COLUMN_WIDTH, 0);
+  const monthTrackWidth = Math.max(
+    contributions.length > 0
+      ? contributions.length * CELL_SIZE + (contributions.length - 1) * CELL_GAP
+      : 0,
+    0
+  );
   const columnCount = Math.max(contributions.length, 1);
 
   const containerVariants = {
@@ -218,14 +223,14 @@ const GitHubHeatmap: React.FC = () => {
                 {/* Month labels */}
                 <div
                   className="relative mb-1 ml-8 h-4"
-                  style={{ width: '100%', minWidth: `${monthTrackWidth}px` }}
+                  style={{ width: `${monthTrackWidth}px`, minWidth: `${monthTrackWidth}px` }}
                 >
                   {monthLabels.map((m, i) => (
                     <span
                       key={i}
                       className="absolute text-[10px] font-mono text-gray-500"
                       style={{
-                        left: `${(m.index / columnCount) * 100}%`,
+                        left: `${m.index * COLUMN_WIDTH}px`,
                       }}
                     >
                       {m.label}
@@ -245,10 +250,10 @@ const GitHubHeatmap: React.FC = () => {
 
                   {/* Heatmap grid */}
                   <div
-                    className="grid gap-[2px] flex-1"
+                    className="grid gap-[2px]"
                     style={{
-                      gridTemplateColumns: `repeat(${columnCount}, minmax(${CELL_SIZE}px, 1fr))`,
-                      width: '100%',
+                      gridTemplateColumns: `repeat(${columnCount}, ${CELL_SIZE}px)`,
+                      width: `${monthTrackWidth}px`,
                       minWidth: `${monthTrackWidth}px`,
                     }}
                   >
