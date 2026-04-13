@@ -16,14 +16,12 @@ import SecretConsole from './components/SecretConsole';
 import MatrixRain from './components/MatrixRain';
 import GitHubHeatmap from './components/GitHubHeatmap';
 import { useKonamiCode } from './hooks/useKonamiCode';
-import { useAnimations } from './context/AnimationContext';
-import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
   const konamiActivated = useKonamiCode();
-  const { animationsEnabled } = useAnimations();
 
   useEffect(() => {
     // Simulate loading time
@@ -64,7 +62,6 @@ function App() {
   }
 
   return (
-    <MotionConfig reducedMotion={animationsEnabled ? 'never' : 'always'}>
     <>
       <div className="App gradient-bg">
         <Cursor />
@@ -142,7 +139,6 @@ function App() {
       {/* Matrix Rain Easter Egg - Konami Code: ↑↑↓↓←→←→BA */}
       <MatrixRain active={konamiActivated} />
     </>
-    </MotionConfig>
   );
 }
 

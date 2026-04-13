@@ -178,29 +178,3 @@ body {
   color: var(--primary-bg);
   transform: scale(1.05);
 }
-
-/* Reduce motion - disables CSS animations and transitions */
-.reduce-motion *,
-.reduce-motion *::before,
-.reduce-motion *::after {
-  animation-duration: 0.001ms !important;
-  animation-delay: 0ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.001ms !important;
-  transition-delay: 0ms !important;
-  scroll-behavior: auto !important;
-}
-
-.reduce-motion .gradient-bg {
-  animation: none !important;
-  background-size: 100% 100% !important;
-}
-
-.reduce-motion .project-card:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-.reduce-motion .skill-tag:hover {
-  transform: none !important;
-}

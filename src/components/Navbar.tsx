@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Download, Zap, ZapOff } from 'lucide-react';
-import { useAnimations } from '../context/AnimationContext';
+import { Menu, X, Sun, Download } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -21,7 +20,6 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { animationsEnabled, toggleAnimations } = useAnimations();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -116,38 +114,10 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
             >
               <Sun className="text-neon-green" size={20} />
             </motion.button>
-
-            <motion.button
-              onClick={toggleAnimations}
-              className="p-2 rounded-full border border-transparent hover:border-neon-pink/40 hover:bg-white/5"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Toggle animations"
-              title={animationsEnabled ? 'Disable animations' : 'Enable animations'}
-            >
-              {animationsEnabled ? (
-                <Zap className="text-neon-pink" size={20} />
-              ) : (
-                <ZapOff className="text-gray-500" size={20} />
-              )}
-            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
-            <motion.button
-              onClick={toggleAnimations}
-              className="p-2 rounded-full mr-1 border border-transparent hover:border-neon-pink/40 hover:bg-white/5"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Toggle animations"
-            >
-              {animationsEnabled ? (
-                <Zap className="text-neon-pink" size={18} />
-              ) : (
-                <ZapOff className="text-gray-500" size={18} />
-              )}
-            </motion.button>
             <motion.button
               onClick={onThemeToggle}
               className="p-2 rounded-full mr-2 border border-transparent hover:border-neon-green/40 hover:bg-white/5"
