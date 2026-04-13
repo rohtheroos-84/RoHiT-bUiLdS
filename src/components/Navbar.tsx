@@ -40,14 +40,24 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed w-full z-40 transition-all duration-300 ${
-          isScrolled ? 'py-3 glassmorphism' : 'py-5 bg-transparent'
-        }`}
+        className="fixed inset-x-0 top-3 z-40 px-3 sm:px-5 lg:px-8 pointer-events-none"
       >
-        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
+        <div
+          className={`relative mx-auto max-w-[1320px] rounded-[1.8rem] border transition-all duration-300 pointer-events-auto ${
+            isScrolled
+              ? 'bg-[rgba(7,10,24,0.82)] border-cyan-300/30 shadow-[0_10px_35px_rgba(0,0,0,0.45),0_0_26px_rgba(0,240,255,0.2)] backdrop-blur-2xl'
+              : 'bg-[rgba(7,10,24,0.58)] border-white/15 shadow-[0_8px_28px_rgba(0,0,0,0.35),0_0_18px_rgba(0,240,255,0.15)] backdrop-blur-xl'
+          }`}
+        >
+          <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.22),transparent_52%),radial-gradient(circle_at_85%_120%,rgba(0,240,255,0.12),transparent_45%)]" />
+          <div
+            className={`relative flex justify-between items-center transition-all duration-300 ${
+              isScrolled ? 'px-4 md:px-5 lg:px-6 py-2.5' : 'px-4 md:px-6 lg:px-8 py-3.5'
+            }`}
+          >
           <motion.a
             href="#home"
-            className="text-xl font-mono font-bold tracking-wider"
+            className="text-lg md:text-xl font-mono font-bold tracking-wider"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -56,14 +66,14 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6">
             {navItems.map((item) => (
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="relative text-white hover:text-neon-blue transition-colors font-mono text-sm tracking-wide"
+                className="relative text-white/90 hover:text-neon-blue transition-colors font-mono text-xs xl:text-sm tracking-wide"
                 whileHover={{
-                  scale: 1.1,
+                  scale: 1.05,
                   textShadow: "0 0 8px rgba(0, 240, 255, 0.7)",
                 }}
                 whileTap={{ scale: 0.95 }}
@@ -76,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
             <motion.a
               href="/Rohit's Resume.pdf"
               download="Rohit N - Resume.pdf"
-              className="px-4 py-2 glassmorphism rounded-full flex items-center gap-2 text-neon-blue border border-neon-blue font-mono text-sm"
+              className="px-3 xl:px-4 py-2 rounded-full flex items-center gap-2 text-neon-blue border border-neon-blue/70 bg-[rgba(0,240,255,0.08)] font-mono text-xs xl:text-sm"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(0, 240, 255, 0.5)"
@@ -103,7 +113,7 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
 
             <motion.button
               onClick={onThemeToggle}
-              className="p-2 rounded-full"
+              className="p-2 rounded-full border border-transparent hover:border-neon-green/40 hover:bg-white/5"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle theme"
@@ -113,7 +123,7 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
 
             <motion.button
               onClick={toggleAnimations}
-              className="p-2 rounded-full"
+              className="p-2 rounded-full border border-transparent hover:border-neon-pink/40 hover:bg-white/5"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle animations"
@@ -128,10 +138,10 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <motion.button
               onClick={toggleAnimations}
-              className="p-2 rounded-full mr-1"
+              className="p-2 rounded-full mr-1 border border-transparent hover:border-neon-pink/40 hover:bg-white/5"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle animations"
@@ -144,7 +154,7 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
             </motion.button>
             <motion.button
               onClick={onThemeToggle}
-              className="p-2 rounded-full mr-2"
+              className="p-2 rounded-full mr-2 border border-transparent hover:border-neon-green/40 hover:bg-white/5"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle theme"
@@ -153,13 +163,14 @@ const Navbar: React.FC<NavbarProps> = ({ onThemeToggle }) => {
             </motion.button>
             <motion.button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2"
+              className="p-2 rounded-full border border-white/20 hover:border-neon-blue/50 hover:bg-white/5"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Open menu"
             >
               <Menu className="text-white" size={24} />
             </motion.button>
+          </div>
           </div>
         </div>
       </motion.nav>
