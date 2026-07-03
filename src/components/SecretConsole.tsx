@@ -40,7 +40,7 @@ const SecretConsole: React.FC = () => {
     about: 'Rohit N | B.Tech CSE Junior | Full-Stack Developer | AI/ML Enthusiast',
     skills: 'React.js, Node.js, Python, Java, C++, AWS, GCP, Docker, MongoDB, PostgreSQL',
     hire: '📧 rohit84.official@gmail.com | 💼 Always open to opportunities!',
-    education: 'Vellore Institute of Technology, Chennai | B.Tech CSE Junior | CGPA: 8.89',
+    education: 'Vellore Institute of Technology, Chennai | B.Tech CSE Junior | CGPA: 9.01',
     projects: 'AI-powered apps, Cloud solutions, Full-stack web apps | Check out my portfolio!',
     clear: 'CLEAR_SCREEN',
     exit: 'EXIT_CONSOLE',
