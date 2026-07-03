@@ -85,24 +85,6 @@ const About: React.FC = () => {
                 don't really have a "method", i just work on what's in front of me and try to improve along the way.
               </p>
               
-              <div className="space-y-4">
-                <div className="flex items-center space-x-2">
-                  <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">backend & ml development</p>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">clear, maintainable code</p>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">user-centric problem solving</p>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-neon-green">▹</span>
-                  <p className="text-gray-300">continuous learning mindset</p>
-                </div>
-              </div>
               
               {/* Resume Download Button */}
               <motion.a
