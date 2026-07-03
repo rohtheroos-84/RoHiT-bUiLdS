@@ -7,22 +7,23 @@ import ParallaxTilt from 'react-parallax-tilt';
 const projectData = [
   {
     id: 1,
-    title: "DeepShield – Deepfake Video Detection",
-    description: "A deepfake detection system using Vision Transformer (ViT) with 91.03% training accuracy.",
-    icon: <Shield className="text-neon-blue" size={24} />,
+    title: "EM-Connect – Event Management System (Event-Driven Architecture)",
+    description: "A backend-first event management system built with Spring Boot and Golang using an event-driven microservices architecture.",
+    icon: <Monitor className="text-neon-purple" size={24} />,
     details: [
-      "Engineered a ViT-based system, achieving 88.13% validation accuracy on the FaceForensics++ dataset.",
-      "Extracted and processed 400+ videos, converting them into frame-level datasets for optimal transformer-based learning.",
-      "Deployed a Flask backend for real-time video uploads and frame-by-frame classification.",
-      "Enhanced detection precision using color jitter, horizontal flips, and normalization techniques.",
-      "Project selected among top 150 out of 2000+ teams at HackHub'25, hosted by IEEE-CS VITC and powered by GitHub.",
-      "Collaborated with 3 teammates to deliver the end-to-end product in a 36-hour hackathon environment."
+      "Spring Boot API with JWT authentication and role-based access control.",
+      "Event lifecycle management with strict state machine enforcement.",
+      "Atomic capacity handling using pessimistic locking to prevent overbooking.",
+      "RabbitMQ-based domain event publishing for decoupled services.",
+      "Golang workers for ticket generation, email notifications, and WebSocket hub.",
+      "Asynchronous QR ticket generation with validation endpoints."
     ],
-    technologies: ["Python", "ViT", "Flask", "Deep Learning"],
-    github: "https://github.com/rohtheroos-84/DeepShield",
-    link: "https://github.com/rohtheroos-84/DeepShield",
-    color: "neon-blue"
+    technologies: ["Spring Boot", "Java 17", "Golang", "RabbitMQ", "PostgreSQL", "JWT", "Docker"],
+    github: "https://github.com/rohtheroos-84/EM-Connect",
+    link: "https://tryemconnect.netlify.app",
+    color: "neon-purple"
   },
+  
   {
     id: 2,
     title: "Quality Assurance Assistant – AI-Powered Quality Analysis Platform",
@@ -39,7 +40,7 @@ const projectData = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Python", "FastAPI", "Gemini AI", "Pandas"],
     github: "https://github.com/rohtheroos-84/Quality-Assurance-Assistant",
     link: "https://quality-assurance-assistant.vercel.app",
-    color: "neon-purple"
+    color: "neon-blue"
   },
   {
     id: 3,
@@ -75,25 +76,25 @@ const projectData = [
     technologies: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Gemini AI", "jsPDF"],
     github: "https://github.com/rohtheroos-84/paper-thoughts",
     link: "https://trypaperthoughts.vercel.app",
-    color: "neon-blue"
+    color: "neon-purple"
   },
   {
     id: 5,
-    title: "EM-Connect – Event Management System (Event-Driven Architecture)",
-    description: "A backend-first event management system built with Spring Boot and Golang using an event-driven microservices architecture.",
-    icon: <Monitor className="text-neon-purple" size={24} />,
+    title: "DeepShield – Deepfake Video Detection",
+    description: "A deepfake detection system using Vision Transformer (ViT) with 91.03% training accuracy.",
+    icon: <Shield className="text-neon-blue" size={24} />,
     details: [
-      "Spring Boot API with JWT authentication and role-based access control.",
-      "Event lifecycle management with strict state machine enforcement.",
-      "Atomic capacity handling using pessimistic locking to prevent overbooking.",
-      "RabbitMQ-based domain event publishing for decoupled services.",
-      "Golang workers for ticket generation, email notifications, and WebSocket hub.",
-      "Asynchronous QR ticket generation with validation endpoints."
+      "Engineered a ViT-based system, achieving 88.13% validation accuracy on the FaceForensics++ dataset.",
+      "Extracted and processed 400+ videos, converting them into frame-level datasets for optimal transformer-based learning.",
+      "Deployed a Flask backend for real-time video uploads and frame-by-frame classification.",
+      "Enhanced detection precision using color jitter, horizontal flips, and normalization techniques.",
+      "Project selected among top 150 out of 2000+ teams at HackHub'25, hosted by IEEE-CS VITC and powered by GitHub.",
+      "Collaborated with 3 teammates to deliver the end-to-end product in a 36-hour hackathon environment."
     ],
-    technologies: ["Spring Boot", "Java 17", "Golang", "RabbitMQ", "PostgreSQL", "JWT", "Docker"],
-    github: "https://github.com/rohtheroos-84/EM-Connect",
-    link: "https://tryemconnect.netlify.app",
-    color: "neon-purple"
+    technologies: ["Python", "ViT", "Flask", "Deep Learning"],
+    github: "https://github.com/rohtheroos-84/DeepShield",
+    link: "https://github.com/rohtheroos-84/DeepShield",
+    color: "neon-blue"
   },
   {
     id: 6,

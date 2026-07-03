@@ -37,8 +37,8 @@ const experienceData = [
     id: 4,
     role: "Competitive Programming Member",
     organization: "Google Developer Group (GDG) | VIT Chennai",
-    period: "Oct 2024 - Present",
-    description: "Active member of GDG's Competitive Programming wing, regularly participating in coding contests and collaborative problem-solving sessions.",
+    period: "Oct 2024 - June 2026",
+    description: "Was an active member of GDG's Competitive Programming wing, regularly participating in coding contests and collaborative problem-solving sessions.",
     icon: <Code className="text-neon-blue" size={24} />,
     color: "neon-blue"
   }
