@@ -8,9 +8,9 @@ import { Briefcase } from 'lucide-react';
 const experienceData = [
   {
     id: 1,
-    role: "Analyst Intern",
+    role: "SDE Intern",
     organization: "American Express Pvt. Ltd. | Hybrid",
-    period: "Jan 2026 - Present",
+    period: "Jan 2026 - Jul 2026",
     description: "stay tuned for updates!",
     icon: <Briefcase className="text-neon-blue" size={24} />,
     color: "neon-blue"
