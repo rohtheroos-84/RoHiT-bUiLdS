@@ -31,7 +31,11 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--primary-bg);
+  background:
+    radial-gradient(circle at 18% 8%, rgba(0, 240, 255, 0.08), transparent 30rem),
+    radial-gradient(circle at 82% 34%, rgba(176, 38, 255, 0.09), transparent 34rem),
+    linear-gradient(180deg, #080812 0%, #050505 28%, #0a0a12 58%, #070711 100%);
+  background-attachment: fixed;
   color: var(--text-primary, #ffffff);
   overflow-x: hidden;
   min-height: 100vh;
@@ -124,6 +128,18 @@ body {
 .section {
   padding: 6rem 0;
   position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 8rem;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.38), transparent);
+  opacity: 0.8;
 }
 
 @keyframes float {
@@ -155,9 +171,28 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(-45deg, #050505, #0a0a0a, #131326, #1a1a2e);
+  background:
+    radial-gradient(circle at 16% 12%, rgba(0, 240, 255, 0.09), transparent 28rem),
+    radial-gradient(circle at 84% 38%, rgba(176, 38, 255, 0.1), transparent 34rem),
+    linear-gradient(-45deg, #050505, #0a0a0a, #131326, #1a1a2e);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
+}
+
+.App.gradient-bg {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+.App .gradient-bg:not(.App),
+.App section.bg-primary-bg {
+  background: transparent;
+  animation: none;
+}
+
+.App footer.bg-secondary-bg {
+  background: rgba(8, 8, 16, 0.74);
+  backdrop-filter: blur(14px);
 }
 
 .project-card {
