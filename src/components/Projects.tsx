@@ -28,7 +28,7 @@ const projectData = [
     id: 2,
     title: "Quality Assurance Assistant – AI-Powered Quality Analysis Platform",
     description: "An AI-driven quality engineering assistant that combines classical quality tools with modern AI insights for data-driven process improvement.",
-    icon: <Target className="text-neon-purple" size={24} />,
+    icon: <Target className="text-neon-blue" size={24} />,
     details: [
       "AI chat with multiple personas for novice, expert, and managerial perspectives.",
       "Automated generation of Pareto charts, histograms, control charts, and Cp/Cpk analysis.",
@@ -64,7 +64,7 @@ const projectData = [
     id: 4,
     title: "Paper Thoughts – AI-Powered Lecture Note Mood Analyzer",
     description: "A notebook-style web app that analyzes lecture notes using AI to detect confusion, confidence, boredom, and alertness, helping students study smarter.",
-    icon: <FileText className="text-neon-blue" size={24} />,
+    icon: <FileText className="text-neon-purple" size={24} />,
     details: [
       "Paragraph-level mood classification with visual timelines and heatmaps.",
       "AI-generated TL;DR summaries and personalized study plans.",
