@@ -8,10 +8,10 @@ import { Briefcase } from 'lucide-react';
 const experienceData = [
   {
     id: 1,
-    role: "SDE Intern",
+    role: "SWE Intern",
     organization: "American Express Pvt. Ltd. | Hybrid",
     period: "Jan 2026 - Jul 2026",
-    description: "stay tuned for updates!",
+    description: "Designed and implemented an enterprise-grade release governance platform that consolidates fragmented release metadata from ServiceNow, Jira, GitHub Enterprise, and Confluence into a normalized domain model.",
     icon: <Briefcase className="text-neon-blue" size={24} />,
     color: "neon-blue"
   },
