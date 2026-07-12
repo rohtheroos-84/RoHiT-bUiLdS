@@ -70,9 +70,9 @@ function App() {
           <Hero />
           <About />
           <GitHubHeatmap />
-          <Education />
-          <Projects />
           <Experience />
+          <Projects />
+          <Education />
           <Skills />
           <Certificates />
           <PatentsPublications />
