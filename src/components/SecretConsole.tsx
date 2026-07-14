@@ -12,6 +12,7 @@ type TerminalLine = {
 };
 
 const promptLabel = 'rohit@portfolio:~$';
+const OPEN_CONSOLE_EVENT = 'open-secret-console';
 
 const createLine = (text: string, type: TerminalLineType): TerminalLine => ({
   id: Date.now() + Math.random(),
@@ -50,6 +51,18 @@ const SecretConsole: React.FC = () => {
     window.addEventListener('keypress', handleKeyPress);
     return () => window.removeEventListener('keypress', handleKeyPress);
   }, [isOpen, keyBuffer]);
+
+  useEffect(() => {
+    const handleOpenConsole = () => {
+      setIsOpen(true);
+      setCommand('');
+      historyIndexRef.current = -1;
+      setOutput(initialOutput());
+    };
+
+    window.addEventListener(OPEN_CONSOLE_EVENT, handleOpenConsole);
+    return () => window.removeEventListener(OPEN_CONSOLE_EVENT, handleOpenConsole);
+  }, []);
 
   useEffect(() => {
     outputRef.current?.scrollTo({ top: outputRef.current.scrollHeight, behavior: 'smooth' });

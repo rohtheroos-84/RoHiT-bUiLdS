@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Eye } from 'lucide-react';
+import { Eye, Terminal } from 'lucide-react';
 
 const COUNTER_BASE_URL = 'https://api.counterapi.dev/v1/rohitn-portfolio/visits';
 const VISIT_COUNT_STORAGE_KEY = 'rohit-portfolio-visit-count';
 const VISIT_COUNTED_SESSION_KEY = 'rohit-portfolio-visit-counted';
+const OPEN_CONSOLE_EVENT = 'open-secret-console';
 
 const getCachedVisitCount = () => {
   if (typeof window === 'undefined') {
@@ -114,14 +115,27 @@ const Footer: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="flex items-center justify-center gap-1.5 text-gray-300 text-xs font-mono whitespace-nowrap md:justify-self-center"
+            className="flex flex-col items-center justify-center gap-2 text-gray-300 text-xs font-mono whitespace-nowrap md:justify-self-center"
           >
-            <Eye size={12} className="text-neon-blue opacity-80" />
-            <span>
-              {typeof viewCount === 'number'
-                ? `${viewCount.toLocaleString()} visits`
-                : 'Counting visits...'}
-            </span>
+            <div className="flex items-center gap-1.5">
+              <Eye size={12} className="text-neon-blue opacity-80" />
+              <span>
+                {typeof viewCount === 'number'
+                  ? `${viewCount.toLocaleString()} visits`
+                  : 'Counting visits...'}
+              </span>
+            </div>
+
+            <motion.button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent(OPEN_CONSOLE_EVENT))}
+              className="inline-flex items-center gap-2 rounded-full border border-neon-green/40 bg-[rgba(57,255,20,0.08)] px-3 py-1.5 text-[11px] tracking-[0.16em] text-neon-green transition-colors hover:border-neon-green/70 hover:bg-[rgba(57,255,20,0.14)]"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Terminal size={12} />
+              OPEN CONSOLE
+            </motion.button>
           </motion.div>
           
           <motion.div 
