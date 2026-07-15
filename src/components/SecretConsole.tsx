@@ -1,15 +1,31 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Terminal } from 'lucide-react';
+import { X, Terminal, Briefcase, GraduationCap, Mail, Sparkles } from 'lucide-react';
 
 type TerminalLineType = 'system' | 'command' | 'response' | 'error';
 
 type TerminalLine = {
   id: number;
-  text: string;
   type: TerminalLineType;
   time: string;
+  text?: string;
+  response?: ConsoleResponse;
 };
+
+type ConsoleCardType = 'profile' | 'list' | 'contact' | 'project' | 'help';
+
+type ConsoleCard = {
+  title: string;
+  subtitle?: string;
+  body?: string;
+  items?: string[];
+  footnote?: string;
+  type: ConsoleCardType;
+};
+
+type ConsoleResponse =
+  | { kind: 'text'; text: string }
+  | { kind: 'card'; card: ConsoleCard };
 
 const promptLabel = 'rohit@portfolio:~$';
 const OPEN_CONSOLE_EVENT = 'open-secret-console';
@@ -25,6 +41,65 @@ const initialOutput = () => [
   createLine('Welcome to Rohit\'s Secret Console', 'system'),
   createLine('Type "help" for available commands', 'system'),
 ];
+
+const renderCard = (card: ConsoleCard) => {
+  const accentClass =
+    card.type === 'contact'
+      ? 'border-neon-green/40 bg-[rgba(57,255,20,0.06)]'
+      : card.type === 'project'
+        ? 'border-neon-purple/40 bg-[rgba(176,38,255,0.06)]'
+        : card.type === 'profile'
+          ? 'border-neon-blue/40 bg-[rgba(0,240,255,0.06)]'
+          : 'border-white/10 bg-white/5';
+
+    const icon =
+      card.type === 'contact' ? (
+        <Mail className="text-neon-green" size={14} />
+      ) : card.type === 'project' ? (
+        <Briefcase className="text-neon-purple" size={14} />
+      ) : card.type === 'profile' ? (
+        <Sparkles className="text-neon-blue" size={14} />
+      ) : card.type === 'help' ? (
+        <Terminal className="text-neon-blue" size={14} />
+      ) : (
+        <GraduationCap className="text-neon-blue" size={14} />
+      );
+
+  return (
+    <div className={`w-full rounded-xl border p-4 ${accentClass}`}>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <div className="text-sm font-bold tracking-wide text-white">{card.title}</div>
+          {card.subtitle && <div className="mt-1 text-xs text-gray-400">{card.subtitle}</div>}
+        </div>
+          <div className="mt-0.5">{icon}</div>
+      </div>
+
+      {card.body && <p className="mt-3 text-gray-200 leading-relaxed">{card.body}</p>}
+
+      {card.items && card.items.length > 0 && (
+        <div className="mt-3 grid gap-2">
+          {card.items.map((item) => (
+            <div key={item} className="flex items-start gap-2 text-gray-200">
+              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-neon-blue shrink-0" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {card.footnote && <div className="mt-3 text-xs text-gray-500">{card.footnote}</div>}
+    </div>
+  );
+};
+
+const renderResponse = (response: ConsoleResponse) => {
+  if (response.kind === 'text') {
+    return <div>{response.text}</div>;
+  }
+
+  return renderCard(response.card);
+};
 
 const SecretConsole: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,15 +143,67 @@ const SecretConsole: React.FC = () => {
     outputRef.current?.scrollTo({ top: outputRef.current.scrollHeight, behavior: 'smooth' });
   }, [output]);
 
-  const commands: Record<string, string> = {
-    help: 'Available commands: about, skills, hire, education, projects, clear, exit',
-    about: 'Rohit N | B.Tech CSE Junior | Full-Stack Developer | AI/ML Enthusiast',
-    skills: 'React.js, Node.js, Python, Java, C++, AWS, GCP, Docker, MongoDB, PostgreSQL',
-    hire: 'rohit84.official@gmail.com | Always open to opportunities!',
-    education: 'Vellore Institute of Technology, Chennai | B.Tech CSE Junior | CGPA: 9.01',
-    projects: 'AI-powered apps, Cloud solutions, Full-stack web apps | Check out my portfolio!',
-    clear: 'CLEAR_SCREEN',
-    exit: 'EXIT_CONSOLE',
+  const commands: Record<string, ConsoleResponse> = {
+    help: {
+      kind: 'card',
+      card: {
+        type: 'help',
+        title: 'Available commands',
+        subtitle: 'Use arrow keys to browse recent commands',
+        items: ['about - short profile card', 'skills - quick tech stack view', 'hire - contact details', 'education - education summary', 'projects - featured work', 'clear - wipe the terminal', 'exit - close the console'],
+        footnote: 'Tip: try the footer console button if you want a visible trigger.',
+      },
+    },
+    about: {
+      kind: 'card',
+      card: {
+        type: 'profile',
+        title: 'Rohit N',
+        subtitle: 'B.Tech CSE Junior | Full-Stack Developer | AI/ML Enthusiast',
+        body: 'Builds practical web experiences with a focus on performance, clean UI, and systems that feel polished.',
+        footnote: 'Currently experimenting with AI-assisted interfaces and portfolio-grade interactions.',
+      },
+    },
+    skills: {
+      kind: 'card',
+      card: {
+        type: 'list',
+        title: 'Core stack',
+        subtitle: 'Tools and languages used across projects',
+        items: ['React.js', 'Node.js', 'Python', 'Java', 'C++', 'AWS', 'GCP', 'Docker', 'MongoDB', 'PostgreSQL'],
+      },
+    },
+    hire: {
+      kind: 'card',
+      card: {
+        type: 'contact',
+        title: 'Open for opportunities',
+        subtitle: 'Best way to reach out',
+        body: 'rohit84.official@gmail.com',
+        footnote: 'Always open to internships, product work, and strong engineering teams.',
+      },
+    },
+    education: {
+      kind: 'card',
+      card: {
+        type: 'profile',
+        title: 'Education snapshot',
+        subtitle: 'Vellore Institute of Technology, Chennai',
+        items: ['B.Tech in Computer Science with specialization in AI & ML', 'CGPA: 9.01', 'Pursuing a curriculum focused on applied AI and software systems'],
+      },
+    },
+    projects: {
+      kind: 'card',
+      card: {
+        type: 'project',
+        title: 'Featured work',
+        subtitle: 'A few things worth checking out',
+        items: ['AI-powered apps with context-aware automation', 'Cloud solutions and production-ready deployments', 'Full-stack web apps built for polished portfolio presentation'],
+        footnote: 'Use the Projects section for the full breakdown.',
+      },
+    },
+    clear: { kind: 'text', text: 'CLEAR_SCREEN' },
+    exit: { kind: 'text', text: 'EXIT_CONSOLE' },
   };
 
   const handleHistoryNavigation = (direction: 'up' | 'down') => {
@@ -107,11 +234,11 @@ const SecretConsole: React.FC = () => {
       setIsOpen(false);
       setOutput(initialOutput());
     } else {
-      const response = commands[cmd] || `Command not found: "${cmd}". Type "help" for available commands.`;
+      const response = commands[cmd] || { kind: 'text', text: `Command not found: "${cmd}". Type "help" for available commands.` };
       setOutput((prev) => [
         ...prev,
-        createLine(`${promptLabel} ${command}`, 'command'),
-        createLine(response, commands[cmd] ? 'response' : 'error'),
+        { ...createLine(`${promptLabel} ${command}`, 'command'), text: `${promptLabel} ${command}` },
+        { ...createLine(response.kind === 'text' ? response.text : 'structured response', commands[cmd] ? 'response' : 'error'), response },
       ]);
     }
     
@@ -162,7 +289,11 @@ const SecretConsole: React.FC = () => {
                             : 'text-neon-green'
                     }
                   >
-                    {line.type === 'command' ? <span>{line.text}</span> : line.text}
+                      {line.type === 'command'
+                        ? line.text
+                        : line.response
+                          ? renderResponse(line.response)
+                          : line.text}
                   </div>
                 </div>
               ))}
